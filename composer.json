@@ -1,0 +1,50 @@
+{
+    "name": "hacktophp/hsl-php",
+    "description": "A PHP version of the Hack standard library",
+    "type": "library",
+    "require": {
+        "php": "^7.1"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Matthew Brown",
+            "email": "github@muglug.com"
+        }
+    ],
+    "autoload": {
+        "files": [
+            "generated-php/src/c/async.php",
+            "generated-php/src/c/introspect.php",
+            "generated-php/src/c/reduce.php",
+            "generated-php/src/c/select.php",
+            "generated-php/src/dict/async.php",
+            "generated-php/src/dict/combine.php",
+            "generated-php/src/dict/divide.php",
+            "generated-php/src/dict/introspect.php",
+            "generated-php/src/dict/order.php",
+            "generated-php/src/dict/select.php",
+            "generated-php/src/dict/transform.php",
+            "generated-php/src/math/compare.php",
+            "generated-php/src/math/compute.php",
+            "generated-php/src/math/constraints.php",
+            "generated-php/src/math/containers.php",
+            "generated-php/src/math/exception.php",
+            "generated-php/src/str/combine.php",
+            "generated-php/src/str/divide.php",
+            "generated-php/src/str/format.php",
+            "generated-php/src/str/introspect.php",
+            "generated-php/src/str/select.php",
+            "generated-php/src/str/transform.php",
+            "generated-php/src/tuple/async.php",
+            "generated-php/src/vec/async.php",
+            "generated-php/src/vec/combine.php",
+            "generated-php/src/vec/divide.php",
+            "generated-php/src/vec/order.php",
+            "generated-php/src/vec/select.php",
+            "generated-php/src/vec/transform.php",
+            "src/asio.php",
+            "src/invariant.php"
+        ]
+    }
+}
