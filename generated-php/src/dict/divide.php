@@ -13,12 +13,12 @@ namespace HH\Lib\Dict;
  * @psalm-template Tk as \arraykey
  * @psalm-template Tv
  *
- * @param KeyedTraversable<Tk, Tv> $traversable
+ * @param iterable<Tk, Tv> $traversable
  * @param \Closure(Tv):bool $predicate
  *
  * @return array{0:array<Tk, Tv>, 1:array<Tk, Tv>}
  */
-function partition(KeyedTraversable $traversable, \Closure $predicate)
+function partition(iterable $traversable, \Closure $predicate)
 {
     $success = [];
     $failure = [];
@@ -35,12 +35,12 @@ function partition(KeyedTraversable $traversable, \Closure $predicate)
  * @psalm-template Tk as \arraykey
  * @psalm-template Tv
  *
- * @param KeyedTraversable<Tk, Tv> $traversable
+ * @param iterable<Tk, Tv> $traversable
  * @param \Closure(Tk, Tv):bool $predicate
  *
  * @return array{0:array<Tk, Tv>, 1:array<Tk, Tv>}
  */
-function partition_with_key(KeyedTraversable $traversable, \Closure $predicate)
+function partition_with_key(iterable $traversable, \Closure $predicate)
 {
     $success = [];
     $failure = [];

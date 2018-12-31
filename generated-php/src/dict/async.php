@@ -14,11 +14,11 @@ use HH\Lib\C;
  * @psalm-template Tk as \arraykey
  * @psalm-template Tv
  *
- * @param KeyedTraversable<Tk, \Sabre\Event\Promise<Tv>> $awaitables
+ * @param iterable<Tk, \Sabre\Event\Promise<Tv>> $awaitables
  *
  * @return \Sabre\Event\Promise<array<Tk, Tv>>
  */
-function from_async(KeyedTraversable $awaitables)
+function from_async(iterable $awaitables)
 {
     return \Sabre\Event\coroutine(
         /** @return \Generator<int, mixed, void, array<Tk, Tv>> */
@@ -118,12 +118,12 @@ function filter_with_key_async(KeyedContainer $traversable, \Closure $predicate)
  * @psalm-template Tv1
  * @psalm-template Tv2
  *
- * @param KeyedTraversable<Tk, Tv1> $traversable
+ * @param iterable<Tk, Tv1> $traversable
  * @param \Closure(Tv1):\Sabre\Event\Promise<Tv2> $value_func
  *
  * @return \Sabre\Event\Promise<array<Tk, Tv2>>
  */
-function map_async(KeyedTraversable $traversable, \Closure $value_func)
+function map_async(iterable $traversable, \Closure $value_func)
 {
     return \Sabre\Event\coroutine(
         /** @return \Generator<int, mixed, void, array<Tk, Tv2>> */

@@ -62,7 +62,7 @@ final class UniversalChainableStub
      *
      * @return static
      */
-    public function __call($_, $_)
+    public function __call($_0, $_0)
     {
         return $this;
     }

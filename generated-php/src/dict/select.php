@@ -10,7 +10,7 @@
 namespace HH\Lib\Dict;
 
 /**
- * Returns a new dict containing only the entries of the first KeyedTraversable
+ * Returns a new dict containing only the entries of the first iterable
  * whose keys do not appear in any of the other ones.
  */
 /**
@@ -18,13 +18,13 @@ namespace HH\Lib\Dict;
  * @psalm-template Tk2 as \arraykey
  * @psalm-template Tv
  *
- * @param KeyedTraversable<Tk1, Tv> $first
- * @param KeyedTraversable<Tk2, mixed> $second
- * @param KeyedTraversable<Tk2, mixed> $rest
+ * @param iterable<Tk1, Tv> $first
+ * @param iterable<Tk2, mixed> $second
+ * @param iterable<Tk2, mixed> $rest
  *
  * @return array<Tk1, Tv>
  */
-function diff_by_key(KeyedTraversable $first, KeyedTraversable $second, KeyedTraversable ...$rest)
+function diff_by_key(iterable $first, iterable $second, iterable ...$rest)
 {
     if (!$first) {
         return [];
@@ -41,11 +41,11 @@ function diff_by_key(KeyedTraversable $first, KeyedTraversable $second, KeyedTra
  * @psalm-template Tk as \arraykey
  * @psalm-template Tv
  *
- * @param KeyedTraversable<Tk, Tv> $traversable
+ * @param iterable<Tk, Tv> $traversable
  *
  * @return array<Tk, Tv>
  */
-function drop(KeyedTraversable $traversable, int $n)
+function drop(iterable $traversable, int $n)
 {
     invariant($n >= 0, 'Expected non-negative N, got %d.', $n);
     $result = [];
@@ -63,12 +63,12 @@ function drop(KeyedTraversable $traversable, int $n)
  * @psalm-template Tk as \arraykey
  * @psalm-template Tv
  *
- * @param KeyedTraversable<Tk, Tv> $traversable
+ * @param iterable<Tk, Tv> $traversable
  * @param null|\Closure(Tv):bool $value_predicate
  *
  * @return array<Tk, Tv>
  */
-function filter(KeyedTraversable $traversable, ?\Closure $value_predicate = null)
+function filter(iterable $traversable, ?\Closure $value_predicate = null)
 {
     $value_predicate = $value_predicate ?? fun('\\HH\\Lib\\_Private\\boolval');
     $dict = [];
@@ -83,12 +83,12 @@ function filter(KeyedTraversable $traversable, ?\Closure $value_predicate = null
  * @psalm-template Tk as \arraykey
  * @psalm-template Tv
  *
- * @param KeyedTraversable<Tk, Tv> $traversable
+ * @param iterable<Tk, Tv> $traversable
  * @param \Closure(Tk, Tv):bool $predicate
  *
  * @return array<Tk, Tv>
  */
-function filter_with_key(KeyedTraversable $traversable, \Closure $predicate)
+function filter_with_key(iterable $traversable, \Closure $predicate)
 {
     $dict = [];
     foreach ($traversable as $key => $value) {
@@ -102,12 +102,12 @@ function filter_with_key(KeyedTraversable $traversable, \Closure $predicate)
  * @psalm-template Tk as \arraykey
  * @psalm-template Tv
  *
- * @param KeyedTraversable<Tk, Tv> $traversable
+ * @param iterable<Tk, Tv> $traversable
  * @param null|\Closure(Tk):bool $key_predicate
  *
  * @return array<Tk, Tv>
  */
-function filter_keys(KeyedTraversable $traversable, ?\Closure $key_predicate = null)
+function filter_keys(iterable $traversable, ?\Closure $key_predicate = null)
 {
     $key_predicate = $key_predicate ?? fun('\\HH\\Lib\\_Private\\boolval');
     $dict = [];
@@ -122,11 +122,11 @@ function filter_keys(KeyedTraversable $traversable, ?\Closure $key_predicate = n
  * @psalm-template Tk as \arraykey
  * @psalm-template Tv
  *
- * @param KeyedTraversable<Tk, null|Tv> $traversable
+ * @param iterable<Tk, null|Tv> $traversable
  *
  * @return array<Tk, Tv>
  */
-function filter_nulls(KeyedTraversable $traversable)
+function filter_nulls(iterable $traversable)
 {
     $result = [];
     foreach ($traversable as $key => $value) {
@@ -159,11 +159,11 @@ function select_keys(KeyedContainer $container, iterable $keys)
  * @psalm-template Tk as \arraykey
  * @psalm-template Tv
  *
- * @param KeyedTraversable<Tk, Tv> $traversable
+ * @param iterable<Tk, Tv> $traversable
  *
  * @return array<Tk, Tv>
  */
-function take(KeyedTraversable $traversable, int $n)
+function take(iterable $traversable, int $n)
 {
     if ($n === 0) {
         return [];
@@ -184,11 +184,11 @@ function take(KeyedTraversable $traversable, int $n)
  * @psalm-template Tk as \arraykey
  * @psalm-template Tv as \arraykey
  *
- * @param KeyedTraversable<Tk, Tv> $traversable
+ * @param iterable<Tk, Tv> $traversable
  *
  * @return array<Tk, Tv>
  */
-function unique(KeyedTraversable $traversable)
+function unique(iterable $traversable)
 {
     return flip(flip($traversable));
 }

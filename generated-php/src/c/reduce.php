@@ -36,13 +36,13 @@ function reduce(iterable $traversable, \Closure $accumulator, $initial)
  * @psalm-template Tv
  * @psalm-template Ta
  *
- * @param KeyedTraversable<Tk, Tv> $traversable
+ * @param iterable<Tk, Tv> $traversable
  * @param \Closure(Ta, Tk, Tv):Ta $accumulator
  * @param Ta $initial
  *
  * @return \Ta
  */
-function reduce_with_key(KeyedTraversable $traversable, \Closure $accumulator, $initial)
+function reduce_with_key(iterable $traversable, \Closure $accumulator, $initial)
 {
     $result = $initial;
     foreach ($traversable as $key => $value) {

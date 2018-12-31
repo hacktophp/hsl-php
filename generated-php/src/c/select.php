@@ -32,12 +32,12 @@ function find(iterable $traversable, \Closure $value_predicate)
  * @psalm-template Tk
  * @psalm-template Tv
  *
- * @param KeyedTraversable<Tk, Tv> $traversable
+ * @param iterable<Tk, Tv> $traversable
  * @param \Closure(Tv):bool $value_predicate
  *
  * @return null|Tk
  */
-function find_key(KeyedTraversable $traversable, \Closure $value_predicate)
+function find_key(iterable $traversable, \Closure $value_predicate)
 {
     foreach ($traversable as $key => $value) {
         if ($value_predicate($value)) {
@@ -78,11 +78,11 @@ function firstx(iterable $traversable)
  * @psalm-template Tk
  * @psalm-template Tv
  *
- * @param KeyedTraversable<Tk, Tv> $traversable
+ * @param iterable<Tk, Tv> $traversable
  *
  * @return null|Tk
  */
-function first_key(KeyedTraversable $traversable)
+function first_key(iterable $traversable)
 {
     if ($traversable !== null) {
         foreach ($traversable as $key => $_) {
@@ -95,11 +95,11 @@ function first_key(KeyedTraversable $traversable)
  * @psalm-template Tk
  * @psalm-template Tv
  *
- * @param KeyedTraversable<Tk, Tv> $traversable
+ * @param iterable<Tk, Tv> $traversable
  *
  * @return \Tk
  */
-function first_keyx(KeyedTraversable $traversable)
+function first_keyx(iterable $traversable)
 {
     foreach ($traversable as $key => $_) {
         return $key;
@@ -168,11 +168,11 @@ function lastx(iterable $traversable)
  * @psalm-template Tk
  * @psalm-template Tv
  *
- * @param KeyedTraversable<Tk, Tv> $traversable
+ * @param iterable<Tk, Tv> $traversable
  *
  * @return null|Tk
  */
-function last_key(KeyedTraversable $traversable)
+function last_key(iterable $traversable)
 {
     if (\is_array($traversable)) {
         return count($traversable) === 0 ? null : count($traversable) - 1;
@@ -198,11 +198,11 @@ function last_key(KeyedTraversable $traversable)
  * @psalm-template Tk
  * @psalm-template Tv
  *
- * @param KeyedTraversable<Tk, Tv> $traversable
+ * @param iterable<Tk, Tv> $traversable
  *
  * @return \Tk
  */
-function last_keyx(KeyedTraversable $traversable)
+function last_keyx(iterable $traversable)
 {
     $last_key = last_key($traversable);
     invariant($last_key !== null, '%s: Expected non-empty input', __FUNCTION__);

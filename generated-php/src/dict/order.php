@@ -14,11 +14,11 @@ use HH\Lib\Vec;
  * @psalm-template Tk as \arraykey
  * @psalm-template Tv
  *
- * @param KeyedTraversable<Tk, Tv> $traversable
+ * @param iterable<Tk, Tv> $traversable
  *
  * @return array<Tk, Tv>
  */
-function reverse(KeyedTraversable $traversable)
+function reverse(iterable $traversable)
 {
     $dict = (array) $traversable;
     return from_keys(Vec\reverse(Vec\keys($dict)), function ($k) use($dict) {
@@ -29,12 +29,12 @@ function reverse(KeyedTraversable $traversable)
  * @psalm-template Tk as \arraykey
  * @psalm-template Tv
  *
- * @param KeyedTraversable<Tk, Tv> $traversable
+ * @param iterable<Tk, Tv> $traversable
  * @param null|\Closure(Tv, Tv):int $value_comparator
  *
  * @return array<Tk, Tv>
  */
-function sort(KeyedTraversable $traversable, ?\Closure $value_comparator = null)
+function sort(iterable $traversable, ?\Closure $value_comparator = null)
 {
     $result = (array) $traversable;
     if ($value_comparator) {
@@ -49,13 +49,13 @@ function sort(KeyedTraversable $traversable, ?\Closure $value_comparator = null)
  * @psalm-template Tv
  * @psalm-template Ts
  *
- * @param KeyedTraversable<Tk, Tv> $traversable
+ * @param iterable<Tk, Tv> $traversable
  * @param \Closure(Tv):Ts $scalar_func
  * @param null|\Closure(Ts, Ts):int $scalar_comparator
  *
  * @return array<Tk, Tv>
  */
-function sort_by(KeyedTraversable $traversable, \Closure $scalar_func, ?\Closure $scalar_comparator = null)
+function sort_by(iterable $traversable, \Closure $scalar_func, ?\Closure $scalar_comparator = null)
 {
     $tuple_comparator = $scalar_comparator ? function ($a, $b) use($scalar_comparator) {
         return $scalar_comparator($a[0], $b[0]);
@@ -72,12 +72,12 @@ function sort_by(KeyedTraversable $traversable, \Closure $scalar_func, ?\Closure
  * @psalm-template Tk as \arraykey
  * @psalm-template Tv
  *
- * @param KeyedTraversable<Tk, Tv> $traversable
+ * @param iterable<Tk, Tv> $traversable
  * @param null|\Closure(Tk, Tk):int $key_comparator
  *
  * @return array<Tk, Tv>
  */
-function sort_by_key(KeyedTraversable $traversable, ?\Closure $key_comparator = null)
+function sort_by_key(iterable $traversable, ?\Closure $key_comparator = null)
 {
     $result = (array) $traversable;
     if ($key_comparator) {

@@ -92,12 +92,12 @@ function map(iterable $traversable, \Closure $value_func)
  * @psalm-template Tv1
  * @psalm-template Tv2
  *
- * @param KeyedTraversable<Tk, Tv1> $traversable
+ * @param iterable<Tk, Tv1> $traversable
  * @param \Closure(Tk, Tv1):Tv2 $value_func
  *
  * @return array<int, Tv2>
  */
-function map_with_key(KeyedTraversable $traversable, \Closure $value_func)
+function map_with_key(iterable $traversable, \Closure $value_func)
 {
     $result = [];
     foreach ($traversable as $key => $value) {

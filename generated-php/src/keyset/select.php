@@ -97,12 +97,12 @@ function filter_nulls(iterable $traversable)
  * @psalm-template Tk
  * @psalm-template Tv as \arraykey
  *
- * @param KeyedTraversable<Tk, Tv> $traversable
+ * @param iterable<Tk, Tv> $traversable
  * @param \Closure(Tk, Tv):bool $predicate
  *
  * @return array<Tv, Tv>
  */
-function filter_with_key(KeyedTraversable $traversable, \Closure $predicate)
+function filter_with_key(iterable $traversable, \Closure $predicate)
 {
     $result = [];
     foreach ($traversable as $key => $value) {
@@ -116,11 +116,11 @@ function filter_with_key(KeyedTraversable $traversable, \Closure $predicate)
  * @psalm-template Tk as \arraykey
  * @psalm-template Tv
  *
- * @param KeyedTraversable<Tk, Tv> $traversable
+ * @param iterable<Tk, Tv> $traversable
  *
  * @return array<Tk, Tk>
  */
-function keys(KeyedTraversable $traversable)
+function keys(iterable $traversable)
 {
     $result = [];
     foreach ($traversable as $key => $_) {

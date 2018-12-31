@@ -31,19 +31,19 @@ function associate(iterable $keys, iterable $values)
     return $result;
 }
 /**
- * Merges multiple KeyedTraversables into a new dict. In the case of duplicate
+ * Merges multiple iterables into a new dict. In the case of duplicate
  * keys, later values will overwrite the previous ones.
  */
 /**
  * @psalm-template Tk as \arraykey
  * @psalm-template Tv
  *
- * @param KeyedTraversable<Tk, Tv> $first
- * @param KeyedTraversable<Tk, Tv> $rest
+ * @param iterable<Tk, Tv> $first
+ * @param iterable<Tk, Tv> $rest
  *
  * @return array<Tk, Tv>
  */
-function merge(KeyedTraversable $first, KeyedTraversable ...$rest)
+function merge(iterable $first, iterable ...$rest)
 {
     $result = (array) $first;
     foreach ($rest as $traversable) {

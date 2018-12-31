@@ -14,11 +14,11 @@ use HH\Lib\Math;
  * @psalm-template Tk as \arraykey
  * @psalm-template Tv
  *
- * @param KeyedTraversable<Tk, Tv> $traversable
+ * @param iterable<Tk, Tv> $traversable
  *
  * @return array<int, array<Tk, Tv>>
  */
-function chunk(KeyedTraversable $traversable, int $size)
+function chunk(iterable $traversable, int $size)
 {
     invariant($size > 0, 'Expected positive chunk size, got %d.', $size);
     $result = [];
@@ -51,7 +51,7 @@ function count_values(iterable $values)
  * @psalm-template Tk as \arraykey
  * @psalm-template Tv
  *
- * @param iterable<mixed, \HH\Rx\KeyedTraversable<Tk, Tv>> $traversables
+ * @param iterable<mixed, \HH\Rx\iterable<Tk, Tv>> $traversables
  *
  * @return array<Tk, Tv>
  */
@@ -86,11 +86,11 @@ function fill_keys(iterable $keys, $value)
  * @psalm-template Tk
  * @psalm-template Tv as \arraykey
  *
- * @param KeyedTraversable<Tk, Tv> $traversable
+ * @param iterable<Tk, Tv> $traversable
  *
  * @return array<Tv, Tk>
  */
-function flip(KeyedTraversable $traversable)
+function flip(iterable $traversable)
 {
     $result = [];
     foreach ($traversable as $key => $value) {
@@ -177,12 +177,12 @@ function group_by(iterable $values, \Closure $key_func)
  * @psalm-template Tv1
  * @psalm-template Tv2
  *
- * @param KeyedTraversable<Tk, Tv1> $traversable
+ * @param iterable<Tk, Tv1> $traversable
  * @param \Closure(Tv1):Tv2 $value_func
  *
  * @return array<Tk, Tv2>
  */
-function map(KeyedTraversable $traversable, \Closure $value_func)
+function map(iterable $traversable, \Closure $value_func)
 {
     $result = [];
     foreach ($traversable as $key => $value) {
@@ -195,12 +195,12 @@ function map(KeyedTraversable $traversable, \Closure $value_func)
  * @psalm-template Tk2 as \arraykey
  * @psalm-template Tv
  *
- * @param KeyedTraversable<Tk1, Tv> $traversable
+ * @param iterable<Tk1, Tv> $traversable
  * @param \Closure(Tk1):Tk2 $key_func
  *
  * @return array<Tk2, Tv>
  */
-function map_keys(KeyedTraversable $traversable, \Closure $key_func)
+function map_keys(iterable $traversable, \Closure $key_func)
 {
     $result = [];
     foreach ($traversable as $key => $value) {
@@ -213,12 +213,12 @@ function map_keys(KeyedTraversable $traversable, \Closure $key_func)
  * @psalm-template Tv1
  * @psalm-template Tv2
  *
- * @param KeyedTraversable<Tk, Tv1> $traversable
+ * @param iterable<Tk, Tv1> $traversable
  * @param \Closure(Tk, Tv1):Tv2 $value_func
  *
  * @return array<Tk, Tv2>
  */
-function map_with_key(KeyedTraversable $traversable, \Closure $value_func)
+function map_with_key(iterable $traversable, \Closure $value_func)
 {
     $result = [];
     foreach ($traversable as $key => $value) {
@@ -251,13 +251,13 @@ function pull(iterable $traversable, \Closure $value_func, \Closure $key_func)
  * @psalm-template Tv1
  * @psalm-template Tv2
  *
- * @param KeyedTraversable<Tk1, Tv1> $traversable
+ * @param iterable<Tk1, Tv1> $traversable
  * @param \Closure(Tk1, Tv1):Tv2 $value_func
  * @param \Closure(Tk1, Tv1):Tk2 $key_func
  *
  * @return array<Tk2, Tv2>
  */
-function pull_with_key(KeyedTraversable $traversable, \Closure $value_func, \Closure $key_func)
+function pull_with_key(iterable $traversable, \Closure $value_func, \Closure $key_func)
 {
     $result = [];
     foreach ($traversable as $key => $value) {
