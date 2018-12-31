@@ -27,7 +27,7 @@
             "generated-php/src/dict/transform.php",
             "generated-php/src/math/compare.php",
             "generated-php/src/math/compute.php",
-            "generated-php/src/math/constraints.php",
+            "generated-php/src/math/constants.php",
             "generated-php/src/math/containers.php",
             "generated-php/src/math/exception.php",
             "generated-php/src/str/combine.php",
@@ -43,6 +43,7 @@
             "generated-php/src/vec/order.php",
             "generated-php/src/vec/select.php",
             "generated-php/src/vec/transform.php",
+            "generated-php/src/private.php",
             "src/asio.php",
             "src/invariant.php"
         ]
