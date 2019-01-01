@@ -12,7 +12,7 @@ namespace HH\Lib\Str;
 /**
  * @return array<int, string>
  */
-function chunk(string $string, int $chunk_size = 1)
+function chunk(string $string, int $chunk_size = 1) : array
 {
     invariant($chunk_size >= 1, 'Expected positive chunk size.');
     return (array) \str_split($string, $chunk_size);
@@ -20,7 +20,7 @@ function chunk(string $string, int $chunk_size = 1)
 /**
  * @return array<int, string>
  */
-function split(string $string, string $delimiter, ?int $limit = null)
+function split(string $string, string $delimiter, ?int $limit = null) : array
 {
     if ($delimiter === '') {
         if ($limit === null || $limit >= \strlen($string)) {

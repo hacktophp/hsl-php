@@ -18,10 +18,8 @@ namespace HH\Lib\C;
  *
  * @param iterable<mixed, T> $traversable
  * @param null|\Closure(T):bool $predicate
- *
- * @return bool
  */
-function any(iterable $traversable, ?\Closure $predicate = null)
+function any(iterable $traversable, ?\Closure $predicate = null) : bool
 {
     $predicate = $predicate ?? fun('\\HH\\Lib\\_Private\\boolval');
     foreach ($traversable as $value) {
@@ -36,10 +34,8 @@ function any(iterable $traversable, ?\Closure $predicate = null)
  *
  * @param iterable<mixed, T> $traversable
  * @param T $value
- *
- * @return bool
  */
-function contains(iterable $traversable, $value)
+function contains(iterable $traversable, $value) : bool
 {
     if (\is_array($traversable)) {
         return contains_key($traversable, $value);
@@ -57,10 +53,8 @@ function contains(iterable $traversable, $value)
  *
  * @param KeyedContainer<Tk, Tv> $container
  * @param Tk $key
- *
- * @return bool
  */
-function contains_key(KeyedContainer $container, $key)
+function contains_key(KeyedContainer $container, $key) : bool
 {
     return \array_key_exists($key, $container);
 }
@@ -68,10 +62,8 @@ function contains_key(KeyedContainer $container, $key)
  * @psalm-template T
  *
  * @param Container<T> $container
- *
- * @return int
  */
-function count(Container $container)
+function count(Container $container) : int
 {
     return \count($container);
 }
@@ -80,10 +72,8 @@ function count(Container $container)
  *
  * @param iterable<mixed, T> $traversable
  * @param null|\Closure(T):bool $predicate
- *
- * @return bool
  */
-function every(iterable $traversable, ?\Closure $predicate = null)
+function every(iterable $traversable, ?\Closure $predicate = null) : bool
 {
     $predicate = $predicate ?? fun('\\HH\\Lib\\_Private\\boolval');
     foreach ($traversable as $value) {
@@ -97,10 +87,8 @@ function every(iterable $traversable, ?\Closure $predicate = null)
  * @psalm-template T
  *
  * @param Container<T> $container
- *
- * @return bool
  */
-function is_empty(Container $container)
+function is_empty(Container $container) : bool
 {
     return !$container;
 }

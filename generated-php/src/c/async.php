@@ -26,7 +26,7 @@ namespace HH\Lib\C;
  *
  * @return \Sabre\Event\Promise<null|T>
  */
-function first_async(\Sabre\Event\Promise $awaitable)
+function first_async(\Sabre\Event\Promise $awaitable) : \Sabre\Event\Promise
 {
     return \Sabre\Event\coroutine(
         /** @return \Generator<int, mixed, void, null|T> */
@@ -49,7 +49,7 @@ function first_async(\Sabre\Event\Promise $awaitable)
  *
  * @return \Sabre\Event\Promise<T>
  */
-function firstx_async(\Sabre\Event\Promise $awaitable)
+function firstx_async(\Sabre\Event\Promise $awaitable) : \Sabre\Event\Promise
 {
     return \Sabre\Event\coroutine(
         /** @return \Generator<int, mixed, void, T> */

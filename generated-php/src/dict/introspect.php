@@ -16,10 +16,8 @@ use HH\Lib\C;
  *
  * @param array<Tk, Tv> $dict1
  * @param array<Tk, Tv> $dict2
- *
- * @return bool
  */
-function equal(array $dict1, array $dict2)
+function equal(array $dict1, array $dict2) : bool
 {
     if ($dict1 === $dict2) {
         return true;

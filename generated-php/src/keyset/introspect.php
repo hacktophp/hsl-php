@@ -15,10 +15,8 @@ use HH\Lib\C;
  *
  * @param array<Tv, Tv> $keyset1
  * @param array<Tv, Tv> $keyset2
- *
- * @return bool
  */
-function equal(array $keyset1, array $keyset2)
+function equal(array $keyset1, array $keyset2) : bool
 {
     return $keyset1 == $keyset2;
 }

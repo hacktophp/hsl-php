@@ -21,7 +21,7 @@ namespace HH\Lib\C;
  * @param \Closure(Ta, Tv):Ta $accumulator
  * @param Ta $initial
  *
- * @return \Ta
+ * @return Ta
  */
 function reduce(iterable $traversable, \Closure $accumulator, $initial)
 {
@@ -40,7 +40,7 @@ function reduce(iterable $traversable, \Closure $accumulator, $initial)
  * @param \Closure(Ta, Tk, Tv):Ta $accumulator
  * @param Ta $initial
  *
- * @return \Ta
+ * @return Ta
  */
 function reduce_with_key(iterable $traversable, \Closure $accumulator, $initial)
 {

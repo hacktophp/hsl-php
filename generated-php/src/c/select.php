@@ -65,7 +65,7 @@ function first(iterable $traversable)
  *
  * @param iterable<mixed, T> $traversable
  *
- * @return \T
+ * @return T
  */
 function firstx(iterable $traversable)
 {
@@ -97,7 +97,7 @@ function first_key(iterable $traversable)
  *
  * @param iterable<Tk, Tv> $traversable
  *
- * @return \Tk
+ * @return Tk
  */
 function first_keyx(iterable $traversable)
 {
@@ -136,7 +136,7 @@ function last(iterable $traversable)
  *
  * @param iterable<mixed, Tv> $traversable
  *
- * @return \Tv
+ * @return Tv
  */
 function lastx(iterable $traversable)
 {
@@ -200,7 +200,7 @@ function last_key(iterable $traversable)
  *
  * @param iterable<Tk, Tv> $traversable
  *
- * @return \Tk
+ * @return Tk
  */
 function last_keyx(iterable $traversable)
 {
@@ -230,7 +230,7 @@ function nfirst(?iterable $traversable)
  * @param iterable<mixed, T> $traversable
  * @param mixed $format_args
  *
- * @return \T
+ * @return T
  */
 function onlyx(iterable $traversable, ?Str\SprintfFormatString $format_string = null, ...$format_args)
 {

@@ -18,7 +18,7 @@ use HH\Lib\Vec;
  *
  * @return array<Tk, Tv>
  */
-function reverse(iterable $traversable)
+function reverse(iterable $traversable) : array
 {
     $dict = (array) $traversable;
     return from_keys(Vec\reverse(Vec\keys($dict)), function ($k) use($dict) {
@@ -34,7 +34,7 @@ function reverse(iterable $traversable)
  *
  * @return array<Tk, Tv>
  */
-function sort(iterable $traversable, ?\Closure $value_comparator = null)
+function sort(iterable $traversable, ?\Closure $value_comparator = null) : array
 {
     $result = (array) $traversable;
     if ($value_comparator) {
@@ -55,7 +55,7 @@ function sort(iterable $traversable, ?\Closure $value_comparator = null)
  *
  * @return array<Tk, Tv>
  */
-function sort_by(iterable $traversable, \Closure $scalar_func, ?\Closure $scalar_comparator = null)
+function sort_by(iterable $traversable, \Closure $scalar_func, ?\Closure $scalar_comparator = null) : array
 {
     $tuple_comparator = $scalar_comparator ? function ($a, $b) use($scalar_comparator) {
         return $scalar_comparator($a[0], $b[0]);
@@ -77,7 +77,7 @@ function sort_by(iterable $traversable, \Closure $scalar_func, ?\Closure $scalar
  *
  * @return array<Tk, Tv>
  */
-function sort_by_key(iterable $traversable, ?\Closure $key_comparator = null)
+function sort_by_key(iterable $traversable, ?\Closure $key_comparator = null) : array
 {
     $result = (array) $traversable;
     if ($key_comparator) {

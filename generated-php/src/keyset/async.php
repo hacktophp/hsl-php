@@ -17,7 +17,7 @@ use HH\Lib\Vec;
  *
  * @return \Sabre\Event\Promise<array<Tv, Tv>>
  */
-function from_async(iterable $awaitables)
+function from_async(iterable $awaitables) : \Sabre\Event\Promise
 {
     return \Sabre\Event\coroutine(
         /** @return \Generator<int, mixed, void, array<Tv, Tv>> */
@@ -35,7 +35,7 @@ function from_async(iterable $awaitables)
  *
  * @return \Sabre\Event\Promise<array<Tv, Tv>>
  */
-function filter_async(Container $traversable, \Closure $value_predicate)
+function filter_async(Container $traversable, \Closure $value_predicate) : \Sabre\Event\Promise
 {
     return \Sabre\Event\coroutine(
         /** @return \Generator<int, mixed, void, array<Tv, Tv>> */
@@ -62,7 +62,7 @@ function filter_async(Container $traversable, \Closure $value_predicate)
  *
  * @return \Sabre\Event\Promise<array<Tk, Tk>>
  */
-function map_async(iterable $traversable, \Closure $async_func)
+function map_async(iterable $traversable, \Closure $async_func) : \Sabre\Event\Promise
 {
     return \Sabre\Event\coroutine(
         /** @return \Generator<int, mixed, void, array<Tk, Tk>> */

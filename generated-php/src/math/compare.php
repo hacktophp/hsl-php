@@ -10,13 +10,13 @@
 namespace HH\Lib\Math;
 
 /**
- * @psalm-template T as \num
+ * @psalm-template T as numeric
  *
  * @param T $first
  * @param T $second
  * @param T $rest
  *
- * @return \T
+ * @return T
  */
 function maxva($first, $second, ...$rest)
 {
@@ -29,13 +29,13 @@ function maxva($first, $second, ...$rest)
     return $max;
 }
 /**
- * @psalm-template T as \num
+ * @psalm-template T as numeric
  *
  * @param T $first
  * @param T $second
  * @param T $rest
  *
- * @return \T
+ * @return T
  */
 function minva($first, $second, ...$rest)
 {

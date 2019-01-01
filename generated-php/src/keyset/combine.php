@@ -23,7 +23,7 @@ namespace HH\Lib\Keyset;
  *
  * @return array<Tv, Tv>
  */
-function union(iterable $first, iterable ...$rest)
+function union(iterable $first, iterable ...$rest) : array
 {
     $result = (array) $first;
     foreach ($rest as $traversable) {

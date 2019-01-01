@@ -26,7 +26,7 @@ use HH\Lib\{Dict, Keyset};
  *
  * @return array<int, Tv1>
  */
-function diff(iterable $first, iterable $second, iterable ...$rest)
+function diff(iterable $first, iterable $second, iterable ...$rest) : array
 {
     if (!$first) {
         return [];
@@ -49,7 +49,7 @@ function diff(iterable $first, iterable $second, iterable ...$rest)
  *
  * @return array<int, Tv>
  */
-function diff_by(iterable $first, iterable $second, \Closure $scalar_func)
+function diff_by(iterable $first, iterable $second, \Closure $scalar_func) : array
 {
     if (!$first) {
         return [];
@@ -69,7 +69,7 @@ function diff_by(iterable $first, iterable $second, \Closure $scalar_func)
  *
  * @return array<int, Tv>
  */
-function drop(iterable $traversable, int $n)
+function drop(iterable $traversable, int $n) : array
 {
     invariant($n >= 0, 'Expected non-negative N, got %d.', $n);
     $result = [];
@@ -91,7 +91,7 @@ function drop(iterable $traversable, int $n)
  *
  * @return array<int, Tv>
  */
-function filter(iterable $traversable, ?\Closure $value_predicate = null)
+function filter(iterable $traversable, ?\Closure $value_predicate = null) : array
 {
     $value_predicate = $value_predicate ?? fun('\\HH\\Lib\\_Private\\boolval');
     $result = [];
@@ -109,7 +109,7 @@ function filter(iterable $traversable, ?\Closure $value_predicate = null)
  *
  * @return array<int, Tv>
  */
-function filter_nulls(iterable $traversable)
+function filter_nulls(iterable $traversable) : array
 {
     $result = [];
     foreach ($traversable as $value) {
@@ -128,7 +128,7 @@ function filter_nulls(iterable $traversable)
  *
  * @return array<int, Tv>
  */
-function filter_with_key(iterable $traversable, \Closure $predicate)
+function filter_with_key(iterable $traversable, \Closure $predicate) : array
 {
     $result = [];
     foreach ($traversable as $key => $value) {
@@ -151,7 +151,7 @@ function filter_with_key(iterable $traversable, \Closure $predicate)
  *
  * @return array<int, Tv>
  */
-function intersect(iterable $first, iterable $second, iterable ...$rest)
+function intersect(iterable $first, iterable $second, iterable ...$rest) : array
 {
     $intersection = Keyset\intersect($first, $second, ...$rest);
     if (!$intersection) {
@@ -169,7 +169,7 @@ function intersect(iterable $first, iterable $second, iterable ...$rest)
  *
  * @return array<int, Tk>
  */
-function keys(iterable $traversable)
+function keys(iterable $traversable) : array
 {
     $result = [];
     foreach ($traversable as $key => $_) {
@@ -189,7 +189,7 @@ function keys(iterable $traversable)
  *
  * @return array<int, Tv>
  */
-function sample(iterable $traversable, int $sample_size)
+function sample(iterable $traversable, int $sample_size) : array
 {
     invariant($sample_size >= 0, 'Expected non-negative sample size, got %d.', $sample_size);
     return take(shuffle($traversable), $sample_size);
@@ -201,7 +201,7 @@ function sample(iterable $traversable, int $sample_size)
  *
  * @return array<int, Tv>
  */
-function slice(Container $container, int $offset, ?int $length = null)
+function slice(Container $container, int $offset, ?int $length = null) : array
 {
     invariant($offset >= 0, 'Expected non-negative offset.');
     invariant($length === null || $length >= 0, 'Expected non-negative length.');
@@ -214,7 +214,7 @@ function slice(Container $container, int $offset, ?int $length = null)
  *
  * @return array<int, Tv>
  */
-function take(iterable $traversable, int $n)
+function take(iterable $traversable, int $n) : array
 {
     if ($n === 0) {
         return [];
@@ -238,7 +238,7 @@ function take(iterable $traversable, int $n)
  *
  * @return array<int, Tv>
  */
-function unique(iterable $traversable)
+function unique(iterable $traversable) : array
 {
     return (array) (array) $traversable;
 }
@@ -251,7 +251,7 @@ function unique(iterable $traversable)
  *
  * @return array<int, Tv>
  */
-function unique_by(iterable $traversable, \Closure $scalar_func)
+function unique_by(iterable $traversable, \Closure $scalar_func) : array
 {
     return (array) Dict\from_values($traversable, $scalar_func);
 }

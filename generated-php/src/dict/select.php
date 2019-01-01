@@ -10,7 +10,7 @@
 namespace HH\Lib\Dict;
 
 /**
- * Returns a new dict containing only the entries of the first iterable
+ * Returns a new dict containing only the entries of the first KeyedTraversable
  * whose keys do not appear in any of the other ones.
  */
 /**
@@ -24,7 +24,7 @@ namespace HH\Lib\Dict;
  *
  * @return array<Tk1, Tv>
  */
-function diff_by_key(iterable $first, iterable $second, iterable ...$rest)
+function diff_by_key(iterable $first, iterable $second, iterable ...$rest) : array
 {
     if (!$first) {
         return [];
@@ -45,7 +45,7 @@ function diff_by_key(iterable $first, iterable $second, iterable ...$rest)
  *
  * @return array<Tk, Tv>
  */
-function drop(iterable $traversable, int $n)
+function drop(iterable $traversable, int $n) : array
 {
     invariant($n >= 0, 'Expected non-negative N, got %d.', $n);
     $result = [];
@@ -68,7 +68,7 @@ function drop(iterable $traversable, int $n)
  *
  * @return array<Tk, Tv>
  */
-function filter(iterable $traversable, ?\Closure $value_predicate = null)
+function filter(iterable $traversable, ?\Closure $value_predicate = null) : array
 {
     $value_predicate = $value_predicate ?? fun('\\HH\\Lib\\_Private\\boolval');
     $dict = [];
@@ -88,7 +88,7 @@ function filter(iterable $traversable, ?\Closure $value_predicate = null)
  *
  * @return array<Tk, Tv>
  */
-function filter_with_key(iterable $traversable, \Closure $predicate)
+function filter_with_key(iterable $traversable, \Closure $predicate) : array
 {
     $dict = [];
     foreach ($traversable as $key => $value) {
@@ -107,7 +107,7 @@ function filter_with_key(iterable $traversable, \Closure $predicate)
  *
  * @return array<Tk, Tv>
  */
-function filter_keys(iterable $traversable, ?\Closure $key_predicate = null)
+function filter_keys(iterable $traversable, ?\Closure $key_predicate = null) : array
 {
     $key_predicate = $key_predicate ?? fun('\\HH\\Lib\\_Private\\boolval');
     $dict = [];
@@ -126,7 +126,7 @@ function filter_keys(iterable $traversable, ?\Closure $key_predicate = null)
  *
  * @return array<Tk, Tv>
  */
-function filter_nulls(iterable $traversable)
+function filter_nulls(iterable $traversable) : array
 {
     $result = [];
     foreach ($traversable as $key => $value) {
@@ -145,7 +145,7 @@ function filter_nulls(iterable $traversable)
  *
  * @return array<Tk, Tv>
  */
-function select_keys(KeyedContainer $container, iterable $keys)
+function select_keys(KeyedContainer $container, iterable $keys) : array
 {
     $result = [];
     foreach ($keys as $key) {
@@ -163,7 +163,7 @@ function select_keys(KeyedContainer $container, iterable $keys)
  *
  * @return array<Tk, Tv>
  */
-function take(iterable $traversable, int $n)
+function take(iterable $traversable, int $n) : array
 {
     if ($n === 0) {
         return [];
@@ -188,7 +188,7 @@ function take(iterable $traversable, int $n)
  *
  * @return array<Tk, Tv>
  */
-function unique(iterable $traversable)
+function unique(iterable $traversable) : array
 {
     return flip(flip($traversable));
 }
@@ -202,13 +202,13 @@ function unique(iterable $traversable)
  *
  * @return array<Tk, Tv>
  */
-function unique_by(KeyedContainer $container, \Closure $scalar_func)
+function unique_by(KeyedContainer $container, \Closure $scalar_func) : array
 {
     // We first convert the container to dict[scalar_key => original_key] to
     // remove duplicates, then back to dict[original_key => original_value].
-    return pull(pull_with_key($container, function ($k, $_) {
+    return pull(pull_with_key($container, function ($k, $_1) {
         return $k;
-    }, function ($_, $v) use($scalar_func) {
+    }, function ($_0, $v) use($scalar_func) {
         return $scalar_func($v);
     }), function ($orig_key) use($container) {
         return $container[$orig_key];

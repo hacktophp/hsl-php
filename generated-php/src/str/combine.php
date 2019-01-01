@@ -11,10 +11,8 @@ namespace HH\Lib\Str;
 
 /**
  * @param iterable<mixed, \arraykey> $pieces
- *
- * @return string
  */
-function join(iterable $pieces, string $glue)
+function join(iterable $pieces, string $glue) : string
 {
     if ($pieces instanceof Container) {
         return \implode($glue, $pieces);

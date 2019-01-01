@@ -19,7 +19,7 @@ use function HH\Lib\_Private\universal_chainable_stub as FBLogger;
  *
  * @return array<int, array<Tv, Tv>>
  */
-function chunk(iterable $traversable, int $size)
+function chunk(iterable $traversable, int $size) : array
 {
     invariant($size > 0, 'Expected positive chunk size, got %d.', $size);
     $result = [];
@@ -42,7 +42,7 @@ function chunk(iterable $traversable, int $size)
  *
  * @return array<Tv2, Tv2>
  */
-function map(iterable $traversable, \Closure $value_func)
+function map(iterable $traversable, \Closure $value_func) : array
 {
     $result = [];
     foreach ($traversable as $value) {
@@ -60,7 +60,7 @@ function map(iterable $traversable, \Closure $value_func)
  *
  * @return array<Tv2, Tv2>
  */
-function map_with_key(iterable $traversable, \Closure $value_func)
+function map_with_key(iterable $traversable, \Closure $value_func) : array
 {
     $result = [];
     foreach ($traversable as $key => $value) {
@@ -82,7 +82,7 @@ function map_with_key(iterable $traversable, \Closure $value_func)
  *
  * @return array<Tv, Tv>
  */
-function flatten(iterable $traversables)
+function flatten(iterable $traversables) : array
 {
     $result = [];
     foreach ($traversables as $traversable) {

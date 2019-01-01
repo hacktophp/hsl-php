@@ -11,7 +11,7 @@ namespace HH\Lib\Math;
 
 use HH\Lib\{C, Math, Vec};
 /**
- * @psalm-template T as \num
+ * @psalm-template T as numeric
  *
  * @param iterable<mixed, T> $numbers
  *
@@ -31,7 +31,7 @@ function max(iterable $numbers)
  * @psalm-template T
  *
  * @param iterable<mixed, T> $traversable
- * @param \Closure(T):\num $num_func
+ * @param \Closure(T):numeric $num_func
  *
  * @return null|T
  */
@@ -49,11 +49,9 @@ function max_by(iterable $traversable, \Closure $num_func)
     return $max;
 }
 /**
- * @param Container<\num> $numbers
- *
- * @return null|float
+ * @param Container<numeric> $numbers
  */
-function mean(Container $numbers)
+function mean(Container $numbers) : ?float
 {
     $count = (double) \count($numbers);
     if ($count === 0.0) {
@@ -66,11 +64,9 @@ function mean(Container $numbers)
     return $mean;
 }
 /**
- * @param Container<\num> $numbers
- *
- * @return null|float
+ * @param Container<numeric> $numbers
  */
-function median(Container $numbers)
+function median(Container $numbers) : ?float
 {
     $numbers = Vec\sort($numbers);
     $count = \count($numbers);
@@ -84,7 +80,7 @@ function median(Container $numbers)
     return (double) $numbers[$middle_index];
 }
 /**
- * @psalm-template T as \num
+ * @psalm-template T as numeric
  *
  * @param iterable<mixed, T> $numbers
  *
@@ -104,7 +100,7 @@ function min(iterable $numbers)
  * @psalm-template T
  *
  * @param iterable<mixed, T> $traversable
- * @param \Closure(T):\num $num_func
+ * @param \Closure(T):numeric $num_func
  *
  * @return null|T
  */
@@ -123,10 +119,8 @@ function min_by(iterable $traversable, \Closure $num_func)
 }
 /**
  * @param iterable<mixed, int> $traversable
- *
- * @return int
  */
-function sum(iterable $traversable)
+function sum(iterable $traversable) : int
 {
     $result = 0;
     foreach ($traversable as $value) {
@@ -135,13 +129,11 @@ function sum(iterable $traversable)
     return $result;
 }
 /**
- * @psalm-template T as \num
+ * @psalm-template T as numeric
  *
  * @param iterable<mixed, T> $traversable
- *
- * @return float
  */
-function sum_float(iterable $traversable)
+function sum_float(iterable $traversable) : float
 {
     $result = 0.0;
     foreach ($traversable as $value) {

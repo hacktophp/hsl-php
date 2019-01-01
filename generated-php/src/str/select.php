@@ -10,10 +10,7 @@
 namespace HH\Lib\Str;
 
 use HH\Lib\_Private;
-/**
- * @return string
- */
-function slice(string $string, int $offset, ?int $length = null)
+function slice(string $string, int $offset, ?int $length = null) : string
 {
     invariant($length === null || $length >= 0, 'Expected non-negative length.');
     $offset = _Private\validate_offset($offset, length($string));
@@ -23,44 +20,29 @@ function slice(string $string, int $offset, ?int $length = null)
     }
     return $result;
 }
-/**
- * @return string
- */
-function strip_prefix(string $string, string $prefix)
+function strip_prefix(string $string, string $prefix) : string
 {
     if ($prefix === '' || !starts_with($string, $prefix)) {
         return $string;
     }
     return slice($string, length($prefix));
 }
-/**
- * @return string
- */
-function strip_suffix(string $string, string $suffix)
+function strip_suffix(string $string, string $suffix) : string
 {
     if ($suffix === '' || !ends_with($string, $suffix)) {
         return $string;
     }
     return slice($string, 0, length($string) - length($suffix));
 }
-/**
- * @return string
- */
-function trim(string $string, ?string $char_mask = null)
+function trim(string $string, ?string $char_mask = null) : string
 {
     return $char_mask === null ? \trim($string) : \trim($string, $char_mask);
 }
-/**
- * @return string
- */
-function trim_left(string $string, ?string $char_mask = null)
+function trim_left(string $string, ?string $char_mask = null) : string
 {
     return $char_mask === null ? \ltrim($string) : \ltrim($string, $char_mask);
 }
-/**
- * @return string
- */
-function trim_right(string $string, ?string $char_mask = null)
+function trim_right(string $string, ?string $char_mask = null) : string
 {
     return $char_mask === null ? \rtrim($string) : \rtrim($string, $char_mask);
 }

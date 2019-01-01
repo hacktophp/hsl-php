@@ -18,7 +18,7 @@ use HH\Lib\Math;
  *
  * @return array<int, array<Tk, Tv>>
  */
-function chunk(iterable $traversable, int $size)
+function chunk(iterable $traversable, int $size) : array
 {
     invariant($size > 0, 'Expected positive chunk size, got %d.', $size);
     $result = [];
@@ -39,7 +39,7 @@ function chunk(iterable $traversable, int $size)
  *
  * @return array<Tv, int>
  */
-function count_values(iterable $values)
+function count_values(iterable $values) : array
 {
     $result = [];
     foreach ($values as $value) {
@@ -51,11 +51,11 @@ function count_values(iterable $values)
  * @psalm-template Tk as \arraykey
  * @psalm-template Tv
  *
- * @param iterable<mixed, \HH\Rx\iterable<Tk, Tv>> $traversables
+ * @param iterable<mixed, \HH\Rx\KeyedTraversable<Tk, Tv>> $traversables
  *
  * @return array<Tk, Tv>
  */
-function flatten(iterable $traversables)
+function flatten(iterable $traversables) : array
 {
     $result = [];
     foreach ($traversables as $traversable) {
@@ -74,7 +74,7 @@ function flatten(iterable $traversables)
  *
  * @return array<Tk, Tv>
  */
-function fill_keys(iterable $keys, $value)
+function fill_keys(iterable $keys, $value) : array
 {
     $result = [];
     foreach ($keys as $key) {
@@ -90,7 +90,7 @@ function fill_keys(iterable $keys, $value)
  *
  * @return array<Tv, Tk>
  */
-function flip(iterable $traversable)
+function flip(iterable $traversable) : array
 {
     $result = [];
     foreach ($traversable as $key => $value) {
@@ -107,7 +107,7 @@ function flip(iterable $traversable)
  *
  * @return array<Tk, Tv>
  */
-function from_keys(iterable $keys, \Closure $value_func)
+function from_keys(iterable $keys, \Closure $value_func) : array
 {
     $result = [];
     foreach ($keys as $key) {
@@ -123,7 +123,7 @@ function from_keys(iterable $keys, \Closure $value_func)
  *
  * @return array<Tk, Tv>
  */
-function from_entries(iterable $entries)
+function from_entries(iterable $entries) : array
 {
     $result = [];
     foreach ($entries as list($key, $value)) {
@@ -140,7 +140,7 @@ function from_entries(iterable $entries)
  *
  * @return array<Tk, Tv>
  */
-function from_values(iterable $values, \Closure $key_func)
+function from_values(iterable $values, \Closure $key_func) : array
 {
     $result = [];
     foreach ($values as $value) {
@@ -157,7 +157,7 @@ function from_values(iterable $values, \Closure $key_func)
  *
  * @return array<Tk, array<int, Tv>>
  */
-function group_by(iterable $values, \Closure $key_func)
+function group_by(iterable $values, \Closure $key_func) : array
 {
     $result = [];
     foreach ($values as $value) {
@@ -182,7 +182,7 @@ function group_by(iterable $values, \Closure $key_func)
  *
  * @return array<Tk, Tv2>
  */
-function map(iterable $traversable, \Closure $value_func)
+function map(iterable $traversable, \Closure $value_func) : array
 {
     $result = [];
     foreach ($traversable as $key => $value) {
@@ -200,7 +200,7 @@ function map(iterable $traversable, \Closure $value_func)
  *
  * @return array<Tk2, Tv>
  */
-function map_keys(iterable $traversable, \Closure $key_func)
+function map_keys(iterable $traversable, \Closure $key_func) : array
 {
     $result = [];
     foreach ($traversable as $key => $value) {
@@ -218,7 +218,7 @@ function map_keys(iterable $traversable, \Closure $key_func)
  *
  * @return array<Tk, Tv2>
  */
-function map_with_key(iterable $traversable, \Closure $value_func)
+function map_with_key(iterable $traversable, \Closure $value_func) : array
 {
     $result = [];
     foreach ($traversable as $key => $value) {
@@ -237,7 +237,7 @@ function map_with_key(iterable $traversable, \Closure $value_func)
  *
  * @return array<Tk, Tv2>
  */
-function pull(iterable $traversable, \Closure $value_func, \Closure $key_func)
+function pull(iterable $traversable, \Closure $value_func, \Closure $key_func) : array
 {
     $result = [];
     foreach ($traversable as $value) {
@@ -257,7 +257,7 @@ function pull(iterable $traversable, \Closure $value_func, \Closure $key_func)
  *
  * @return array<Tk2, Tv2>
  */
-function pull_with_key(iterable $traversable, \Closure $value_func, \Closure $key_func)
+function pull_with_key(iterable $traversable, \Closure $value_func, \Closure $key_func) : array
 {
     $result = [];
     foreach ($traversable as $key => $value) {

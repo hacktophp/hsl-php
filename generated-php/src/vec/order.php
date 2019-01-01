@@ -11,14 +11,15 @@ namespace HH\Lib\Vec;
 
 use HH\Lib\{C, Dict, Math, Str};
 /**
- * @psalm-template Tv as \num
+ * @psalm-template Tv as numeric
  *
  * @param Tv $start
  * @param Tv $end
+ * @param null|Tv $step
  *
  * @return array<int, Tv>
  */
-function range($start, $end, ?Tv $step = null)
+function range($start, $end, $step = null) : array
 {
     $step = $step ?? 1;
     invariant($step > 0, 'Expected positive step.');
@@ -34,7 +35,7 @@ function range($start, $end, ?Tv $step = null)
  *
  * @return array<int, Tv>
  */
-function reverse(iterable $traversable)
+function reverse(iterable $traversable) : array
 {
     $vec = (array) $traversable;
     $lo = 0;
@@ -57,7 +58,7 @@ function reverse(iterable $traversable)
  *
  * @return array<int, Tv>
  */
-function shuffle(iterable $traversable)
+function shuffle(iterable $traversable) : array
 {
     $vec = (array) $traversable;
     \shuffle($vec);
@@ -71,7 +72,7 @@ function shuffle(iterable $traversable)
  *
  * @return array<int, Tv>
  */
-function sort(iterable $traversable, ?\Closure $comparator = null)
+function sort(iterable $traversable, ?\Closure $comparator = null) : array
 {
     $vec = (array) $traversable;
     if ($comparator) {
@@ -91,7 +92,7 @@ function sort(iterable $traversable, ?\Closure $comparator = null)
  *
  * @return array<int, Tv>
  */
-function sort_by(iterable $traversable, \Closure $scalar_func, ?\Closure $comparator = null)
+function sort_by(iterable $traversable, \Closure $scalar_func, ?\Closure $comparator = null) : array
 {
     $vec = (array) $traversable;
     $order_by = Dict\map($vec, $scalar_func);

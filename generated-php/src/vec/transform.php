@@ -17,7 +17,7 @@ use HH\Lib\Math;
  *
  * @return array<int, array<int, Tv>>
  */
-function chunk(iterable $traversable, int $size)
+function chunk(iterable $traversable, int $size) : array
 {
     invariant($size > 0, 'Expected positive chunk size, got %d.', $size);
     $result = [];
@@ -38,7 +38,7 @@ function chunk(iterable $traversable, int $size)
  *
  * @return array<int, Tv>
  */
-function fill(int $size, $value)
+function fill(int $size, $value) : array
 {
     invariant($size >= 0, 'Expected non-negative fill size, got %d.', $size);
     $result = [];
@@ -60,7 +60,7 @@ function fill(int $size, $value)
  *
  * @return array<int, Tv>
  */
-function flatten(iterable $traversables)
+function flatten(iterable $traversables) : array
 {
     $result = [];
     foreach ($traversables as $traversable) {
@@ -79,7 +79,7 @@ function flatten(iterable $traversables)
  *
  * @return array<int, Tv2>
  */
-function map(iterable $traversable, \Closure $value_func)
+function map(iterable $traversable, \Closure $value_func) : array
 {
     $result = [];
     foreach ($traversable as $value) {
@@ -97,7 +97,7 @@ function map(iterable $traversable, \Closure $value_func)
  *
  * @return array<int, Tv2>
  */
-function map_with_key(iterable $traversable, \Closure $value_func)
+function map_with_key(iterable $traversable, \Closure $value_func) : array
 {
     $result = [];
     foreach ($traversable as $key => $value) {

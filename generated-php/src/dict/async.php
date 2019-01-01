@@ -18,7 +18,7 @@ use HH\Lib\C;
  *
  * @return \Sabre\Event\Promise<array<Tk, Tv>>
  */
-function from_async(iterable $awaitables)
+function from_async(iterable $awaitables) : \Sabre\Event\Promise
 {
     return \Sabre\Event\coroutine(
         /** @return \Generator<int, mixed, void, array<Tk, Tv>> */
@@ -41,7 +41,7 @@ function from_async(iterable $awaitables)
  *
  * @return \Sabre\Event\Promise<array<Tk, Tv>>
  */
-function from_keys_async(iterable $keys, \Closure $async_func)
+function from_keys_async(iterable $keys, \Closure $async_func) : \Sabre\Event\Promise
 {
     return \Sabre\Event\coroutine(
         /** @return \Generator<int, mixed, void, array<Tk, Tv>> */
@@ -70,7 +70,7 @@ function from_keys_async(iterable $keys, \Closure $async_func)
  *
  * @return \Sabre\Event\Promise<array<Tk, Tv>>
  */
-function filter_async(KeyedContainer $traversable, \Closure $value_predicate)
+function filter_async(KeyedContainer $traversable, \Closure $value_predicate) : \Sabre\Event\Promise
 {
     return \Sabre\Event\coroutine(
         /** @return \Generator<int, mixed, void, array<Tk, Tv>> */
@@ -95,7 +95,7 @@ function filter_async(KeyedContainer $traversable, \Closure $value_predicate)
  *
  * @return \Sabre\Event\Promise<array<Tk, Tv>>
  */
-function filter_with_key_async(KeyedContainer $traversable, \Closure $predicate)
+function filter_with_key_async(KeyedContainer $traversable, \Closure $predicate) : \Sabre\Event\Promise
 {
     return \Sabre\Event\coroutine(
         /** @return \Generator<int, mixed, void, array<Tk, Tv>> */
@@ -123,7 +123,7 @@ function filter_with_key_async(KeyedContainer $traversable, \Closure $predicate)
  *
  * @return \Sabre\Event\Promise<array<Tk, Tv2>>
  */
-function map_async(iterable $traversable, \Closure $value_func)
+function map_async(iterable $traversable, \Closure $value_func) : \Sabre\Event\Promise
 {
     return \Sabre\Event\coroutine(
         /** @return \Generator<int, mixed, void, array<Tk, Tv2>> */

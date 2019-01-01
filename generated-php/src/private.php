@@ -9,10 +9,7 @@
  */
 namespace HH\Lib\_Private;
 
-/**
- * @return int
- */
-function validate_offset(int $offset, int $length)
+function validate_offset(int $offset, int $length) : int
 {
     $original_offset = $offset;
     if ($offset < 0) {
@@ -23,19 +20,15 @@ function validate_offset(int $offset, int $length)
 }
 /**
  * @param mixed $val
- *
- * @return bool
  */
-function is_any_array($val)
+function is_any_array($val) : bool
 {
     return \is_array($val) || \is_array($val) || \is_array($val) || \is_array($val);
 }
 /**
  * @param mixed $val
- *
- * @return bool
  */
-function boolval($val)
+function boolval($val) : bool
 {
     return (bool) $val;
 }
@@ -45,11 +38,11 @@ final class StubPHPism_FIXME
     /**
      * @psalm-template T
      *
-     * @param iterable<mixed, T> $_
+     * @param iterable<mixed, T> $_0
      *
      * @return bool
      */
-    public static function isForeachable(iterable $_)
+    public static function isForeachable(iterable $_0)
     {
         return true;
     }
@@ -57,8 +50,8 @@ final class StubPHPism_FIXME
 final class UniversalChainableStub
 {
     /**
-     * @param mixed $_
-     * @param mixed $_
+     * @param mixed $_0
+     * @param mixed $_1
      *
      * @return static
      */
@@ -68,11 +61,9 @@ final class UniversalChainableStub
     }
 }
 /**
- * @param mixed $_
- *
- * @return UniversalChainableStub
+ * @param mixed $_0
  */
-function universal_chainable_stub(...$_)
+function universal_chainable_stub(...$_0) : UniversalChainableStub
 {
     return new UniversalChainableStub();
 }

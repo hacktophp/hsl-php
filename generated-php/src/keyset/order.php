@@ -17,7 +17,7 @@ namespace HH\Lib\Keyset;
  *
  * @return array<Tv, Tv>
  */
-function sort(iterable $traversable, ?\Closure $comparator = null)
+function sort(iterable $traversable, ?\Closure $comparator = null) : array
 {
     $keyset = (array) $traversable;
     if ($comparator) {

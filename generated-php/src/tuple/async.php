@@ -37,7 +37,7 @@ namespace HH\Lib\Tuple;
  *
  * @return \Sabre\Event\Promise<mixed>
  */
-function from_async(?\Sabre\Event\Promise ...$awaitables)
+function from_async(?\Sabre\Event\Promise ...$awaitables) : \Sabre\Event\Promise
 {
     return \Sabre\Event\coroutine(
         /** @return \Generator<int, mixed, void, mixed> */

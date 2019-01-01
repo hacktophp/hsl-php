@@ -10,24 +10,15 @@
 namespace HH\Lib\Str;
 
 use HH\Lib\_Private;
-/**
- * @return int
- */
-function compare(string $string1, string $string2)
+function compare(string $string1, string $string2) : int
 {
     return \strcmp($string1, $string2);
 }
-/**
- * @return int
- */
-function compare_ci(string $string1, string $string2)
+function compare_ci(string $string1, string $string2) : int
 {
     return \strcasecmp($string1, $string2);
 }
-/**
- * @return bool
- */
-function contains(string $haystack, string $needle, int $offset = 0)
+function contains(string $haystack, string $needle, int $offset = 0) : bool
 {
     if ($needle === '') {
         _Private\validate_offset($offset, length($haystack));
@@ -35,10 +26,7 @@ function contains(string $haystack, string $needle, int $offset = 0)
     }
     return search($haystack, $needle, $offset) !== null;
 }
-/**
- * @return bool
- */
-function contains_ci(string $haystack, string $needle, int $offset = 0)
+function contains_ci(string $haystack, string $needle, int $offset = 0) : bool
 {
     if ($needle === '') {
         _Private\validate_offset($offset, length($haystack));
@@ -46,40 +34,25 @@ function contains_ci(string $haystack, string $needle, int $offset = 0)
     }
     return search_ci($haystack, $needle, $offset) !== null;
 }
-/**
- * @return bool
- */
-function ends_with(string $string, string $suffix)
+function ends_with(string $string, string $suffix) : bool
 {
     $suffix_length = length($suffix);
     return $suffix_length === 0 || length($string) >= $suffix_length && \substr_compare($string, $suffix, -$suffix_length, $suffix_length) === 0;
 }
-/**
- * @return bool
- */
-function ends_with_ci(string $string, string $suffix)
+function ends_with_ci(string $string, string $suffix) : bool
 {
     $suffix_length = length($suffix);
     return $suffix_length === 0 || length($string) >= $suffix_length && \substr_compare($string, $suffix, -$suffix_length, $suffix_length, true) === 0;
 }
-/**
- * @return bool
- */
-function is_empty(?string $string)
+function is_empty(?string $string) : bool
 {
     return $string === null || $string === '';
 }
-/**
- * @return int
- */
-function length(string $string)
+function length(string $string) : int
 {
     return \strlen($string);
 }
-/**
- * @return null|int
- */
-function search(string $haystack, string $needle, int $offset = 0)
+function search(string $haystack, string $needle, int $offset = 0) : ?int
 {
     $offset = _Private\validate_offset($offset, length($haystack));
     $position = \strpos($haystack, $needle, $offset);
@@ -88,10 +61,7 @@ function search(string $haystack, string $needle, int $offset = 0)
     }
     return $position;
 }
-/**
- * @return null|int
- */
-function search_ci(string $haystack, string $needle, int $offset = 0)
+function search_ci(string $haystack, string $needle, int $offset = 0) : ?int
 {
     $offset = _Private\validate_offset($offset, length($haystack));
     $position = \stripos($haystack, $needle, $offset);
@@ -100,10 +70,7 @@ function search_ci(string $haystack, string $needle, int $offset = 0)
     }
     return $position;
 }
-/**
- * @return null|int
- */
-function search_last(string $haystack, string $needle, int $offset = 0)
+function search_last(string $haystack, string $needle, int $offset = 0) : ?int
 {
     $haystack_length = length($haystack);
     invariant($offset >= -$haystack_length && $offset <= $haystack_length, 'Offset is out-of-bounds.');
@@ -113,17 +80,11 @@ function search_last(string $haystack, string $needle, int $offset = 0)
     }
     return $position;
 }
-/**
- * @return bool
- */
-function starts_with(string $string, string $prefix)
+function starts_with(string $string, string $prefix) : bool
 {
     return \strncmp($string, $prefix, length($prefix)) === 0;
 }
-/**
- * @return bool
- */
-function starts_with_ci(string $string, string $prefix)
+function starts_with_ci(string $string, string $prefix) : bool
 {
     return \strncasecmp($string, $prefix, length($prefix)) === 0;
 }

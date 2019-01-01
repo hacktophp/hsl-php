@@ -22,7 +22,7 @@ namespace HH\Lib\Vec;
  *
  * @return array<int, Tv>
  */
-function concat(iterable $first, iterable ...$rest)
+function concat(iterable $first, iterable ...$rest) : array
 {
     $result = (array) $first;
     foreach ($rest as $traversable) {

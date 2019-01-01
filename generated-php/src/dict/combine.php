@@ -19,7 +19,7 @@ use HH\Lib\C;
  *
  * @return array<Tk, Tv>
  */
-function associate(iterable $keys, iterable $values)
+function associate(iterable $keys, iterable $values) : array
 {
     $keys = (array) $keys;
     $values = (array) $values;
@@ -31,7 +31,7 @@ function associate(iterable $keys, iterable $values)
     return $result;
 }
 /**
- * Merges multiple iterables into a new dict. In the case of duplicate
+ * Merges multiple KeyedTraversables into a new dict. In the case of duplicate
  * keys, later values will overwrite the previous ones.
  */
 /**
@@ -43,7 +43,7 @@ function associate(iterable $keys, iterable $values)
  *
  * @return array<Tk, Tv>
  */
-function merge(iterable $first, iterable ...$rest)
+function merge(iterable $first, iterable ...$rest) : array
 {
     $result = (array) $first;
     foreach ($rest as $traversable) {

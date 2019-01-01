@@ -23,7 +23,7 @@ namespace HH\Lib\Keyset;
  *
  * @return array<Tv1, Tv1>
  */
-function diff(iterable $first, iterable $second, iterable ...$rest)
+function diff(iterable $first, iterable $second, iterable ...$rest) : array
 {
     if (!$first) {
         return [];
@@ -43,7 +43,7 @@ function diff(iterable $first, iterable $second, iterable ...$rest)
  *
  * @return array<Tv, Tv>
  */
-function drop(iterable $traversable, int $n)
+function drop(iterable $traversable, int $n) : array
 {
     invariant($n >= 0, 'Expected non-negative N, got %d.', $n);
     $result = [];
@@ -65,7 +65,7 @@ function drop(iterable $traversable, int $n)
  *
  * @return array<Tv, Tv>
  */
-function filter(iterable $traversable, ?\Closure $value_predicate = null)
+function filter(iterable $traversable, ?\Closure $value_predicate = null) : array
 {
     $value_predicate = $value_predicate ?? fun('\\HH\\Lib\\_Private\\boolval');
     $result = [];
@@ -83,7 +83,7 @@ function filter(iterable $traversable, ?\Closure $value_predicate = null)
  *
  * @return array<Tv, Tv>
  */
-function filter_nulls(iterable $traversable)
+function filter_nulls(iterable $traversable) : array
 {
     $result = [];
     foreach ($traversable as $value) {
@@ -102,7 +102,7 @@ function filter_nulls(iterable $traversable)
  *
  * @return array<Tv, Tv>
  */
-function filter_with_key(iterable $traversable, \Closure $predicate)
+function filter_with_key(iterable $traversable, \Closure $predicate) : array
 {
     $result = [];
     foreach ($traversable as $key => $value) {
@@ -120,7 +120,7 @@ function filter_with_key(iterable $traversable, \Closure $predicate)
  *
  * @return array<Tk, Tk>
  */
-function keys(iterable $traversable)
+function keys(iterable $traversable) : array
 {
     $result = [];
     foreach ($traversable as $key => $_) {
@@ -141,7 +141,7 @@ function keys(iterable $traversable)
  *
  * @return array<Tv, Tv>
  */
-function intersect(iterable $first, iterable $second, iterable ...$rest)
+function intersect(iterable $first, iterable $second, iterable ...$rest) : array
 {
     if (!$second && !$rest) {
         return [];
@@ -166,7 +166,7 @@ function intersect(iterable $first, iterable $second, iterable ...$rest)
  *
  * @return array<Tv, Tv>
  */
-function take(iterable $traversable, int $n)
+function take(iterable $traversable, int $n) : array
 {
     if ($n === 0) {
         return [];

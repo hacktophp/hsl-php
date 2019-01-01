@@ -12,20 +12,17 @@ namespace HH\Lib\Math;
 use HH\Lib\{C, Str};
 use const HH\Lib\_Private\ALPHABET_ALPHANUMERIC;
 /**
- * @psalm-template T as \num
+ * @psalm-template T as numeric
  *
  * @param T $number
  *
- * @return \T
+ * @return T
  */
 function abs($number)
 {
     return $number < 0 ? -$number : $number;
 }
-/**
- * @return string
- */
-function base_convert(string $value, int $from_base, int $to_base)
+function base_convert(string $value, int $from_base, int $to_base) : string
 {
     invariant($value !== '', 'Unexpected empty string, expected number in base %d', $from_base);
     invariant($from_base >= 2 && $from_base <= 36, 'Expected $from_base to be between 2 and 36, got %d', $from_base);
@@ -51,58 +48,37 @@ function base_convert(string $value, int $from_base, int $to_base)
     } while (\bccomp($result_decimal, '0') > 0);
     return $result;
 }
-/**
- * @return float
- */
-function ceil(\num $value)
+function ceil($value) : float
 {
     return \ceil($value);
 }
-/**
- * @return float
- */
-function cos(\num $arg)
+function cos($arg) : float
 {
     return \cos($arg);
 }
-/**
- * @return int
- */
-function from_base(string $number, int $from_base)
+function from_base(string $number, int $from_base) : int
 {
     $result_string = base_convert($number, $from_base, 10);
     $result = Str\to_int($result_string);
     invariant($result !== null, 'Unexpected integer overflow parsing %s from base %d', $number, $from_base);
     return $result;
 }
-/**
- * @return float
- */
-function exp(\num $arg)
+function exp($arg) : float
 {
     return \exp($arg);
 }
-/**
- * @return float
- */
-function floor(\num $value)
+function floor($value) : float
 {
     return \floor($value);
 }
-/**
- * @return int
- */
-function int_div(int $numerator, int $denominator)
+function int_div(int $numerator, int $denominator) : int
 {
     if ($denominator === 0) {
         throw new DivisionByZeroException();
     }
     return \intdiv($numerator, $denominator);
 }
-/**
- * @return float
- */
-function log(\num $arg, ?\num $base = null)
+function log($arg, $base = null) : float
 {
     invariant($arg > 0, 'Expected positive argument for log, got %f', $arg);
     if ($base === null) {
@@ -112,39 +88,24 @@ function log(\num $arg, ?\num $base = null)
     invariant($base !== 1, 'Logarithm undefined for base 1');
     return \log($arg, $base);
 }
-/**
- * @return float
- */
-function round(\num $val, int $precision = 0)
+function round($val, int $precision = 0) : float
 {
     return \round($val, $precision);
 }
-/**
- * @return float
- */
-function sin(\num $arg)
+function sin($arg) : float
 {
     return \sin($arg);
 }
-/**
- * @return float
- */
-function sqrt(\num $arg)
+function sqrt($arg) : float
 {
     invariant($arg >= 0, 'Expected non-negative argument to sqrt, got %f', $arg);
     return \sqrt($arg);
 }
-/**
- * @return float
- */
-function tan(\num $arg)
+function tan($arg) : float
 {
     return \tan($arg);
 }
-/**
- * @return string
- */
-function to_base(int $number, int $to_base)
+function to_base(int $number, int $to_base) : string
 {
     invariant($to_base >= 2 && $to_base <= 36, 'Expected $to_base to be between 2 and 36, got %d', $to_base);
     invariant($number >= 0, 'Expected non-negative base conversion input, got %d', $number);

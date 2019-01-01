@@ -153,10 +153,8 @@ interface SprintfFormatQuote
 /**
  * @param \HH\FormatString<SprintfFormat> $format_string
  * @param mixed $format_args
- *
- * @return string
  */
-function format(\HH\FormatString $format_string, ...$format_args)
+function format(\HH\FormatString $format_string, ...$format_args) : string
 {
     return \vsprintf($format_string, $format_args);
 }
