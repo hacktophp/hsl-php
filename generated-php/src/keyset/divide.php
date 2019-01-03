@@ -10,14 +10,14 @@
 namespace HH\Lib\Keyset;
 
 /**
- * @psalm-template Tv as \arraykey
+ * @template Tv as \arraykey
  *
  * @param iterable<mixed, Tv> $traversable
  * @param \Closure(Tv):bool $predicate
  *
  * @return array{0:array<Tv, Tv>, 1:array<Tv, Tv>}
  */
-function partition(iterable $traversable, \Closure $predicate)
+function partition(iterable $traversable, \Closure $predicate) : array
 {
     $success = [];
     $failure = [];

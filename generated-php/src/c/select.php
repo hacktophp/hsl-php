@@ -12,7 +12,7 @@ namespace HH\Lib\C;
 use HH\Lib\_Private;
 use HH\Lib\Str;
 /**
- * @psalm-template T
+ * @template T
  *
  * @param iterable<mixed, T> $traversable
  * @param \Closure(T):bool $value_predicate
@@ -29,8 +29,8 @@ function find(iterable $traversable, \Closure $value_predicate)
     return null;
 }
 /**
- * @psalm-template Tk
- * @psalm-template Tv
+ * @template Tk
+ * @template Tv
  *
  * @param iterable<Tk, Tv> $traversable
  * @param \Closure(Tv):bool $value_predicate
@@ -47,7 +47,7 @@ function find_key(iterable $traversable, \Closure $value_predicate)
     return null;
 }
 /**
- * @psalm-template T
+ * @template T
  *
  * @param iterable<mixed, T> $traversable
  *
@@ -61,7 +61,7 @@ function first(iterable $traversable)
     return null;
 }
 /**
- * @psalm-template T
+ * @template T
  *
  * @param iterable<mixed, T> $traversable
  *
@@ -75,8 +75,8 @@ function firstx(iterable $traversable)
     invariant_violation('%s: Expected at least one element.', __FUNCTION__);
 }
 /**
- * @psalm-template Tk
- * @psalm-template Tv
+ * @template Tk
+ * @template Tv
  *
  * @param iterable<Tk, Tv> $traversable
  *
@@ -92,8 +92,8 @@ function first_key(iterable $traversable)
     return null;
 }
 /**
- * @psalm-template Tk
- * @psalm-template Tv
+ * @template Tk
+ * @template Tv
  *
  * @param iterable<Tk, Tv> $traversable
  *
@@ -107,7 +107,7 @@ function first_keyx(iterable $traversable)
     invariant_violation('%s: Expected at least one element.', __FUNCTION__);
 }
 /**
- * @psalm-template Tv
+ * @template Tv
  *
  * @param iterable<mixed, Tv> $traversable
  *
@@ -132,7 +132,7 @@ function last(iterable $traversable)
     return $value;
 }
 /**
- * @psalm-template Tv
+ * @template Tv
  *
  * @param iterable<mixed, Tv> $traversable
  *
@@ -165,8 +165,8 @@ function lastx(iterable $traversable)
     return $value;
 }
 /**
- * @psalm-template Tk
- * @psalm-template Tv
+ * @template Tk
+ * @template Tv
  *
  * @param iterable<Tk, Tv> $traversable
  *
@@ -195,8 +195,8 @@ function last_key(iterable $traversable)
     return $key;
 }
 /**
- * @psalm-template Tk
- * @psalm-template Tv
+ * @template Tk
+ * @template Tv
  *
  * @param iterable<Tk, Tv> $traversable
  *
@@ -209,7 +209,7 @@ function last_keyx(iterable $traversable)
     return $last_key;
 }
 /**
- * @psalm-template T
+ * @template T
  *
  * @param iterable<mixed, T>|null $traversable
  *
@@ -225,7 +225,7 @@ function nfirst(?iterable $traversable)
     return null;
 }
 /**
- * @psalm-template T
+ * @template T
  *
  * @param iterable<mixed, T> $traversable
  * @param mixed $format_args

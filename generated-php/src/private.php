@@ -36,7 +36,7 @@ function boolval($val) : bool
 final class StubPHPism_FIXME
 {
     /**
-     * @psalm-template T
+     * @template T
      *
      * @param iterable<mixed, T> $_0
      *

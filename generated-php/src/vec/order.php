@@ -11,7 +11,7 @@ namespace HH\Lib\Vec;
 
 use HH\Lib\{C, Dict, Math, Str};
 /**
- * @psalm-template Tv as numeric
+ * @template Tv as numeric
  *
  * @param Tv $start
  * @param Tv $end
@@ -29,7 +29,7 @@ function range($start, $end, $step = null) : array
     return (array) \range($start, $end, $step);
 }
 /**
- * @psalm-template Tv
+ * @template Tv
  *
  * @param iterable<mixed, Tv> $traversable
  *
@@ -52,7 +52,7 @@ function reverse(iterable $traversable) : array
  * order.
  */
 /**
- * @psalm-template Tv
+ * @template Tv
  *
  * @param iterable<mixed, Tv> $traversable
  *
@@ -65,7 +65,7 @@ function shuffle(iterable $traversable) : array
     return $vec;
 }
 /**
- * @psalm-template Tv
+ * @template Tv
  *
  * @param iterable<mixed, Tv> $traversable
  * @param null|\Closure(Tv, Tv):int $comparator
@@ -83,8 +83,8 @@ function sort(iterable $traversable, ?\Closure $comparator = null) : array
     return $vec;
 }
 /**
- * @psalm-template Tv
- * @psalm-template Ts
+ * @template Tv
+ * @template Ts
  *
  * @param iterable<mixed, Tv> $traversable
  * @param \Closure(Tv):Ts $scalar_func

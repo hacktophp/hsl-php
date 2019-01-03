@@ -11,8 +11,8 @@ namespace HH\Lib\Dict;
 
 use HH\Lib\Math;
 /**
- * @psalm-template Tk as \arraykey
- * @psalm-template Tv
+ * @template Tk as \arraykey
+ * @template Tv
  *
  * @param iterable<Tk, Tv> $traversable
  *
@@ -33,7 +33,7 @@ function chunk(iterable $traversable, int $size) : array
     return $result;
 }
 /**
- * @psalm-template Tv as \arraykey
+ * @template Tv as \arraykey
  *
  * @param iterable<mixed, Tv> $values
  *
@@ -48,8 +48,8 @@ function count_values(iterable $values) : array
     return $result;
 }
 /**
- * @psalm-template Tk as \arraykey
- * @psalm-template Tv
+ * @template Tk as \arraykey
+ * @template Tv
  *
  * @param iterable<mixed, \HH\Rx\KeyedTraversable<Tk, Tv>> $traversables
  *
@@ -66,8 +66,8 @@ function flatten(iterable $traversables) : array
     return $result;
 }
 /**
- * @psalm-template Tk as \arraykey
- * @psalm-template Tv
+ * @template Tk as \arraykey
+ * @template Tv
  *
  * @param iterable<mixed, Tk> $keys
  * @param Tv $value
@@ -83,8 +83,8 @@ function fill_keys(iterable $keys, $value) : array
     return $result;
 }
 /**
- * @psalm-template Tk
- * @psalm-template Tv as \arraykey
+ * @template Tk
+ * @template Tv as \arraykey
  *
  * @param iterable<Tk, Tv> $traversable
  *
@@ -99,8 +99,8 @@ function flip(iterable $traversable) : array
     return $result;
 }
 /**
- * @psalm-template Tk as \arraykey
- * @psalm-template Tv
+ * @template Tk as \arraykey
+ * @template Tv
  *
  * @param iterable<mixed, Tk> $keys
  * @param \Closure(Tk):Tv $value_func
@@ -116,8 +116,8 @@ function from_keys(iterable $keys, \Closure $value_func) : array
     return $result;
 }
 /**
- * @psalm-template Tk as \arraykey
- * @psalm-template Tv
+ * @template Tk as \arraykey
+ * @template Tv
  *
  * @param iterable<mixed, array{0:Tk, 1:Tv}> $entries
  *
@@ -132,8 +132,8 @@ function from_entries(iterable $entries) : array
     return $result;
 }
 /**
- * @psalm-template Tk as \arraykey
- * @psalm-template Tv
+ * @template Tk as \arraykey
+ * @template Tv
  *
  * @param iterable<mixed, Tv> $values
  * @param \Closure(Tv):Tk $key_func
@@ -149,8 +149,8 @@ function from_values(iterable $values, \Closure $key_func) : array
     return $result;
 }
 /**
- * @psalm-template Tk as \arraykey
- * @psalm-template Tv
+ * @template Tk as \arraykey
+ * @template Tv
  *
  * @param iterable<mixed, Tv> $values
  * @param \Closure(Tv):(null|Tk) $key_func
@@ -173,9 +173,9 @@ function group_by(iterable $values, \Closure $key_func) : array
     return $result;
 }
 /**
- * @psalm-template Tk as \arraykey
- * @psalm-template Tv1
- * @psalm-template Tv2
+ * @template Tk as \arraykey
+ * @template Tv1
+ * @template Tv2
  *
  * @param iterable<Tk, Tv1> $traversable
  * @param \Closure(Tv1):Tv2 $value_func
@@ -191,9 +191,9 @@ function map(iterable $traversable, \Closure $value_func) : array
     return $result;
 }
 /**
- * @psalm-template Tk1
- * @psalm-template Tk2 as \arraykey
- * @psalm-template Tv
+ * @template Tk1
+ * @template Tk2 as \arraykey
+ * @template Tv
  *
  * @param iterable<Tk1, Tv> $traversable
  * @param \Closure(Tk1):Tk2 $key_func
@@ -209,9 +209,9 @@ function map_keys(iterable $traversable, \Closure $key_func) : array
     return $result;
 }
 /**
- * @psalm-template Tk as \arraykey
- * @psalm-template Tv1
- * @psalm-template Tv2
+ * @template Tk as \arraykey
+ * @template Tv1
+ * @template Tv2
  *
  * @param iterable<Tk, Tv1> $traversable
  * @param \Closure(Tk, Tv1):Tv2 $value_func
@@ -227,9 +227,9 @@ function map_with_key(iterable $traversable, \Closure $value_func) : array
     return $result;
 }
 /**
- * @psalm-template Tk as \arraykey
- * @psalm-template Tv1
- * @psalm-template Tv2
+ * @template Tk as \arraykey
+ * @template Tv1
+ * @template Tv2
  *
  * @param iterable<mixed, Tv1> $traversable
  * @param \Closure(Tv1):Tv2 $value_func
@@ -246,10 +246,10 @@ function pull(iterable $traversable, \Closure $value_func, \Closure $key_func) :
     return $result;
 }
 /**
- * @psalm-template Tk1
- * @psalm-template Tk2 as \arraykey
- * @psalm-template Tv1
- * @psalm-template Tv2
+ * @template Tk1
+ * @template Tk2 as \arraykey
+ * @template Tv1
+ * @template Tv2
  *
  * @param iterable<Tk1, Tv1> $traversable
  * @param \Closure(Tk1, Tv1):Tv2 $value_func

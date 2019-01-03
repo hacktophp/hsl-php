@@ -11,7 +11,7 @@ namespace HH\Lib\Math;
 
 use HH\Lib\{C, Math, Vec};
 /**
- * @psalm-template T as numeric
+ * @template T as numeric
  *
  * @param iterable<mixed, T> $numbers
  *
@@ -28,7 +28,7 @@ function max(iterable $numbers)
     return $max;
 }
 /**
- * @psalm-template T
+ * @template T
  *
  * @param iterable<mixed, T> $traversable
  * @param \Closure(T):numeric $num_func
@@ -80,7 +80,7 @@ function median(Container $numbers) : ?float
     return (double) $numbers[$middle_index];
 }
 /**
- * @psalm-template T as numeric
+ * @template T as numeric
  *
  * @param iterable<mixed, T> $numbers
  *
@@ -97,7 +97,7 @@ function min(iterable $numbers)
     return $min;
 }
 /**
- * @psalm-template T
+ * @template T
  *
  * @param iterable<mixed, T> $traversable
  * @param \Closure(T):numeric $num_func
@@ -129,7 +129,7 @@ function sum(iterable $traversable) : int
     return $result;
 }
 /**
- * @psalm-template T as numeric
+ * @template T as numeric
  *
  * @param iterable<mixed, T> $traversable
  */

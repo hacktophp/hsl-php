@@ -11,8 +11,8 @@ namespace HH\Lib\Dict;
 
 use HH\Lib\C;
 /**
- * @psalm-template Tk as \arraykey
- * @psalm-template Tv
+ * @template Tk as \arraykey
+ * @template Tv
  *
  * @param array<Tk, Tv> $dict1
  * @param array<Tk, Tv> $dict2

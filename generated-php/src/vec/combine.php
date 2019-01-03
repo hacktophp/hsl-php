@@ -15,7 +15,7 @@ namespace HH\Lib\Vec;
  * For a variable number of Traversables, see `Vec\flatten()`.
  */
 /**
- * @psalm-template Tv
+ * @template Tv
  *
  * @param iterable<mixed, Tv> $first
  * @param iterable<mixed, Tv> $rest

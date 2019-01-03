@@ -10,14 +10,14 @@
 namespace HH\Lib\Vec;
 
 /**
- * @psalm-template Tv
+ * @template Tv
  *
  * @param iterable<mixed, Tv> $traversable
  * @param \Closure(Tv):bool $predicate
  *
  * @return array{0:array<int, Tv>, 1:array<int, Tv>}
  */
-function partition(iterable $traversable, \Closure $predicate)
+function partition(iterable $traversable, \Closure $predicate) : array
 {
     $success = [];
     $failure = [];

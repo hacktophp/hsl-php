@@ -11,7 +11,7 @@ namespace HH\Lib\Keyset;
 
 use HH\Lib\C;
 /**
- * @psalm-template Tv as \arraykey
+ * @template Tv as \arraykey
  *
  * @param array<Tv, Tv> $keyset1
  * @param array<Tv, Tv> $keyset2

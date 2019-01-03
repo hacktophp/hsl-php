@@ -11,8 +11,8 @@ namespace HH\Lib\Dict;
 
 use HH\Lib\C;
 /**
- * @psalm-template Tk as \arraykey
- * @psalm-template Tv
+ * @template Tk as \arraykey
+ * @template Tv
  *
  * @param iterable<mixed, Tk> $keys
  * @param iterable<mixed, Tv> $values
@@ -35,8 +35,8 @@ function associate(iterable $keys, iterable $values) : array
  * keys, later values will overwrite the previous ones.
  */
 /**
- * @psalm-template Tk as \arraykey
- * @psalm-template Tv
+ * @template Tk as \arraykey
+ * @template Tv
  *
  * @param iterable<Tk, Tv> $first
  * @param iterable<Tk, Tv> $rest

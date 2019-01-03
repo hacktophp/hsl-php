@@ -11,7 +11,7 @@ namespace HH\Lib\Vec;
 
 use HH\Lib\Math;
 /**
- * @psalm-template Tv
+ * @template Tv
  *
  * @param iterable<mixed, Tv> $traversable
  *
@@ -32,7 +32,7 @@ function chunk(iterable $traversable, int $size) : array
     return $result;
 }
 /**
- * @psalm-template Tv
+ * @template Tv
  *
  * @param Tv $value
  *
@@ -54,7 +54,7 @@ function fill(int $size, $value) : array
  * For a fixed number of Traversables, see `Vec\concat()`.
  */
 /**
- * @psalm-template Tv
+ * @template Tv
  *
  * @param iterable<mixed, iterable<mixed, Tv>> $traversables
  *
@@ -71,8 +71,8 @@ function flatten(iterable $traversables) : array
     return $result;
 }
 /**
- * @psalm-template Tv1
- * @psalm-template Tv2
+ * @template Tv1
+ * @template Tv2
  *
  * @param iterable<mixed, Tv1> $traversable
  * @param \Closure(Tv1):Tv2 $value_func
@@ -88,9 +88,9 @@ function map(iterable $traversable, \Closure $value_func) : array
     return $result;
 }
 /**
- * @psalm-template Tk
- * @psalm-template Tv1
- * @psalm-template Tv2
+ * @template Tk
+ * @template Tv1
+ * @template Tv2
  *
  * @param iterable<Tk, Tv1> $traversable
  * @param \Closure(Tk, Tv1):Tv2 $value_func

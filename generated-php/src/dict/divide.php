@@ -10,15 +10,15 @@
 namespace HH\Lib\Dict;
 
 /**
- * @psalm-template Tk as \arraykey
- * @psalm-template Tv
+ * @template Tk as \arraykey
+ * @template Tv
  *
  * @param iterable<Tk, Tv> $traversable
  * @param \Closure(Tv):bool $predicate
  *
  * @return array{0:array<Tk, Tv>, 1:array<Tk, Tv>}
  */
-function partition(iterable $traversable, \Closure $predicate)
+function partition(iterable $traversable, \Closure $predicate) : array
 {
     $success = [];
     $failure = [];
@@ -32,15 +32,15 @@ function partition(iterable $traversable, \Closure $predicate)
     return [$success, $failure];
 }
 /**
- * @psalm-template Tk as \arraykey
- * @psalm-template Tv
+ * @template Tk as \arraykey
+ * @template Tv
  *
  * @param iterable<Tk, Tv> $traversable
  * @param \Closure(Tk, Tv):bool $predicate
  *
  * @return array{0:array<Tk, Tv>, 1:array<Tk, Tv>}
  */
-function partition_with_key(iterable $traversable, \Closure $predicate)
+function partition_with_key(iterable $traversable, \Closure $predicate) : array
 {
     $success = [];
     $failure = [];

@@ -11,8 +11,8 @@ namespace HH\Lib\Dict;
 
 use HH\Lib\Vec;
 /**
- * @psalm-template Tk as \arraykey
- * @psalm-template Tv
+ * @template Tk as \arraykey
+ * @template Tv
  *
  * @param iterable<Tk, Tv> $traversable
  *
@@ -26,8 +26,8 @@ function reverse(iterable $traversable) : array
     });
 }
 /**
- * @psalm-template Tk as \arraykey
- * @psalm-template Tv
+ * @template Tk as \arraykey
+ * @template Tv
  *
  * @param iterable<Tk, Tv> $traversable
  * @param null|\Closure(Tv, Tv):int $value_comparator
@@ -45,9 +45,9 @@ function sort(iterable $traversable, ?\Closure $value_comparator = null) : array
     return $result;
 }
 /**
- * @psalm-template Tk as \arraykey
- * @psalm-template Tv
- * @psalm-template Ts
+ * @template Tk as \arraykey
+ * @template Tv
+ * @template Ts
  *
  * @param iterable<Tk, Tv> $traversable
  * @param \Closure(Tv):Ts $scalar_func
@@ -69,8 +69,8 @@ function sort_by(iterable $traversable, \Closure $scalar_func, ?\Closure $scalar
     });
 }
 /**
- * @psalm-template Tk as \arraykey
- * @psalm-template Tv
+ * @template Tk as \arraykey
+ * @template Tv
  *
  * @param iterable<Tk, Tv> $traversable
  * @param null|\Closure(Tk, Tk):int $key_comparator

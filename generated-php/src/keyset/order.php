@@ -10,7 +10,7 @@
 namespace HH\Lib\Keyset;
 
 /**
- * @psalm-template Tv as \arraykey
+ * @template Tv as \arraykey
  *
  * @param iterable<mixed, Tv> $traversable
  * @param null|\Closure(Tv, Tv):int $comparator

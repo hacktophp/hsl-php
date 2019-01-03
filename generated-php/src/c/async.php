@@ -20,7 +20,7 @@ namespace HH\Lib\C;
  * For non-Awaitable Traversables, see `C\first`.
  */
 /**
- * @psalm-template T
+ * @template T
  *
  * @param \Sabre\Event\Promise<iterable<mixed, T>> $awaitable
  *
@@ -43,7 +43,7 @@ function first_async(\Sabre\Event\Promise $awaitable) : \Sabre\Event\Promise
  * For non-Awaitable Traversables, see `C\firstx`.
  */
 /**
- * @psalm-template T
+ * @template T
  *
  * @param \Sabre\Event\Promise<iterable<mixed, T>> $awaitable
  *

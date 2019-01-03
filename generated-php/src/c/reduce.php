@@ -14,8 +14,8 @@
 namespace HH\Lib\C;
 
 /**
- * @psalm-template Tv
- * @psalm-template Ta
+ * @template Tv
+ * @template Ta
  *
  * @param iterable<mixed, Tv> $traversable
  * @param \Closure(Ta, Tv):Ta $accumulator
@@ -32,9 +32,9 @@ function reduce(iterable $traversable, \Closure $accumulator, $initial)
     return $result;
 }
 /**
- * @psalm-template Tk
- * @psalm-template Tv
- * @psalm-template Ta
+ * @template Tk
+ * @template Tv
+ * @template Ta
  *
  * @param iterable<Tk, Tv> $traversable
  * @param \Closure(Ta, Tk, Tv):Ta $accumulator

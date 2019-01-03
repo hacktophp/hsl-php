@@ -14,8 +14,8 @@ namespace HH\Lib\Keyset;
  * that do not appear in any of the other ones.
  */
 /**
- * @psalm-template Tv1 as \arraykey
- * @psalm-template Tv2 as \arraykey
+ * @template Tv1 as \arraykey
+ * @template Tv2 as \arraykey
  *
  * @param iterable<mixed, Tv1> $first
  * @param iterable<mixed, Tv2> $second
@@ -37,7 +37,7 @@ function diff(iterable $first, iterable $second, iterable ...$rest) : array
     });
 }
 /**
- * @psalm-template Tv as \arraykey
+ * @template Tv as \arraykey
  *
  * @param iterable<mixed, Tv> $traversable
  *
@@ -58,7 +58,7 @@ function drop(iterable $traversable, int $n) : array
     return $result;
 }
 /**
- * @psalm-template Tv as \arraykey
+ * @template Tv as \arraykey
  *
  * @param iterable<mixed, Tv> $traversable
  * @param null|\Closure(Tv):bool $value_predicate
@@ -77,7 +77,7 @@ function filter(iterable $traversable, ?\Closure $value_predicate = null) : arra
     return $result;
 }
 /**
- * @psalm-template Tv as \arraykey
+ * @template Tv as \arraykey
  *
  * @param iterable<mixed, null|Tv> $traversable
  *
@@ -94,8 +94,8 @@ function filter_nulls(iterable $traversable) : array
     return $result;
 }
 /**
- * @psalm-template Tk
- * @psalm-template Tv as \arraykey
+ * @template Tk
+ * @template Tv as \arraykey
  *
  * @param iterable<Tk, Tv> $traversable
  * @param \Closure(Tk, Tv):bool $predicate
@@ -113,8 +113,8 @@ function filter_with_key(iterable $traversable, \Closure $predicate) : array
     return $result;
 }
 /**
- * @psalm-template Tk as \arraykey
- * @psalm-template Tv
+ * @template Tk as \arraykey
+ * @template Tv
  *
  * @param iterable<Tk, Tv> $traversable
  *
@@ -133,7 +133,7 @@ function keys(iterable $traversable) : array
  * that appear in all the other ones.
  */
 /**
- * @psalm-template Tv as \arraykey
+ * @template Tv as \arraykey
  *
  * @param iterable<mixed, Tv> $first
  * @param iterable<mixed, Tv> $second
@@ -160,7 +160,7 @@ function intersect(iterable $first, iterable $second, iterable ...$rest) : array
     return $intersection;
 }
 /**
- * @psalm-template Tv as \arraykey
+ * @template Tv as \arraykey
  *
  * @param iterable<mixed, Tv> $traversable
  *

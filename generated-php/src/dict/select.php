@@ -14,9 +14,9 @@ namespace HH\Lib\Dict;
  * whose keys do not appear in any of the other ones.
  */
 /**
- * @psalm-template Tk1 as \arraykey
- * @psalm-template Tk2 as \arraykey
- * @psalm-template Tv
+ * @template Tk1 as \arraykey
+ * @template Tk2 as \arraykey
+ * @template Tv
  *
  * @param iterable<Tk1, Tv> $first
  * @param iterable<Tk2, mixed> $second
@@ -38,8 +38,8 @@ function diff_by_key(iterable $first, iterable $second, iterable ...$rest) : arr
     });
 }
 /**
- * @psalm-template Tk as \arraykey
- * @psalm-template Tv
+ * @template Tk as \arraykey
+ * @template Tv
  *
  * @param iterable<Tk, Tv> $traversable
  *
@@ -60,8 +60,8 @@ function drop(iterable $traversable, int $n) : array
     return $result;
 }
 /**
- * @psalm-template Tk as \arraykey
- * @psalm-template Tv
+ * @template Tk as \arraykey
+ * @template Tv
  *
  * @param iterable<Tk, Tv> $traversable
  * @param null|\Closure(Tv):bool $value_predicate
@@ -80,8 +80,8 @@ function filter(iterable $traversable, ?\Closure $value_predicate = null) : arra
     return $dict;
 }
 /**
- * @psalm-template Tk as \arraykey
- * @psalm-template Tv
+ * @template Tk as \arraykey
+ * @template Tv
  *
  * @param iterable<Tk, Tv> $traversable
  * @param \Closure(Tk, Tv):bool $predicate
@@ -99,8 +99,8 @@ function filter_with_key(iterable $traversable, \Closure $predicate) : array
     return $dict;
 }
 /**
- * @psalm-template Tk as \arraykey
- * @psalm-template Tv
+ * @template Tk as \arraykey
+ * @template Tv
  *
  * @param iterable<Tk, Tv> $traversable
  * @param null|\Closure(Tk):bool $key_predicate
@@ -119,8 +119,8 @@ function filter_keys(iterable $traversable, ?\Closure $key_predicate = null) : a
     return $dict;
 }
 /**
- * @psalm-template Tk as \arraykey
- * @psalm-template Tv
+ * @template Tk as \arraykey
+ * @template Tv
  *
  * @param iterable<Tk, null|Tv> $traversable
  *
@@ -137,8 +137,8 @@ function filter_nulls(iterable $traversable) : array
     return $result;
 }
 /**
- * @psalm-template Tk as \arraykey
- * @psalm-template Tv
+ * @template Tk as \arraykey
+ * @template Tv
  *
  * @param KeyedContainer<Tk, Tv> $container
  * @param iterable<mixed, Tk> $keys
@@ -156,8 +156,8 @@ function select_keys(KeyedContainer $container, iterable $keys) : array
     return $result;
 }
 /**
- * @psalm-template Tk as \arraykey
- * @psalm-template Tv
+ * @template Tk as \arraykey
+ * @template Tv
  *
  * @param iterable<Tk, Tv> $traversable
  *
@@ -181,8 +181,8 @@ function take(iterable $traversable, int $n) : array
     return $result;
 }
 /**
- * @psalm-template Tk as \arraykey
- * @psalm-template Tv as \arraykey
+ * @template Tk as \arraykey
+ * @template Tv as \arraykey
  *
  * @param iterable<Tk, Tv> $traversable
  *
@@ -193,9 +193,9 @@ function unique(iterable $traversable) : array
     return flip(flip($traversable));
 }
 /**
- * @psalm-template Tk as \arraykey
- * @psalm-template Tv
- * @psalm-template Ts as \arraykey
+ * @template Tk as \arraykey
+ * @template Tv
+ * @template Ts as \arraykey
  *
  * @param KeyedContainer<Tk, Tv> $container
  * @param \Closure(Tv):Ts $scalar_func

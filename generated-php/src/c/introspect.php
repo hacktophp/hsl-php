@@ -14,7 +14,7 @@
 namespace HH\Lib\C;
 
 /**
- * @psalm-template T
+ * @template T
  *
  * @param iterable<mixed, T> $traversable
  * @param null|\Closure(T):bool $predicate
@@ -30,7 +30,7 @@ function any(iterable $traversable, ?\Closure $predicate = null) : bool
     return false;
 }
 /**
- * @psalm-template T
+ * @template T
  *
  * @param iterable<mixed, T> $traversable
  * @param T $value
@@ -48,8 +48,8 @@ function contains(iterable $traversable, $value) : bool
     return false;
 }
 /**
- * @psalm-template Tk
- * @psalm-template Tv
+ * @template Tk
+ * @template Tv
  *
  * @param KeyedContainer<Tk, Tv> $container
  * @param Tk $key
@@ -59,7 +59,7 @@ function contains_key(KeyedContainer $container, $key) : bool
     return \array_key_exists($key, $container);
 }
 /**
- * @psalm-template T
+ * @template T
  *
  * @param Container<T> $container
  */
@@ -68,7 +68,7 @@ function count(Container $container) : int
     return \count($container);
 }
 /**
- * @psalm-template T
+ * @template T
  *
  * @param iterable<mixed, T> $traversable
  * @param null|\Closure(T):bool $predicate
@@ -84,7 +84,7 @@ function every(iterable $traversable, ?\Closure $predicate = null) : bool
     return true;
 }
 /**
- * @psalm-template T
+ * @template T
  *
  * @param Container<T> $container
  */

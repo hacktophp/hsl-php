@@ -10,7 +10,7 @@
 namespace HH\Lib\Vec;
 
 /**
- * @psalm-template Tv
+ * @template Tv
  *
  * @param iterable<mixed, \Sabre\Event\Promise<Tv>> $awaitables
  *
@@ -31,7 +31,7 @@ function from_async(iterable $awaitables) : \Sabre\Event\Promise
     );
 }
 /**
- * @psalm-template Tv
+ * @template Tv
  *
  * @param Container<Tv> $container
  * @param \Closure(Tv):\Sabre\Event\Promise<bool> $value_predicate
@@ -57,8 +57,8 @@ function filter_async(Container $container, \Closure $value_predicate) : \Sabre\
     );
 }
 /**
- * @psalm-template Tv1
- * @psalm-template Tv2
+ * @template Tv1
+ * @template Tv2
  *
  * @param iterable<mixed, Tv1> $traversable
  * @param \Closure(Tv1):\Sabre\Event\Promise<Tv2> $async_func

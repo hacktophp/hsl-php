@@ -12,7 +12,7 @@ namespace HH\Lib\Math;
 use HH\Lib\{C, Str};
 use const HH\Lib\_Private\ALPHABET_ALPHANUMERIC;
 /**
- * @psalm-template T as numeric
+ * @template T as numeric
  *
  * @param T $number
  *

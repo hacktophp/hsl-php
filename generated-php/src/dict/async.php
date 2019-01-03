@@ -11,8 +11,8 @@ namespace HH\Lib\Dict;
 
 use HH\Lib\C;
 /**
- * @psalm-template Tk as \arraykey
- * @psalm-template Tv
+ * @template Tk as \arraykey
+ * @template Tv
  *
  * @param iterable<Tk, \Sabre\Event\Promise<Tv>> $awaitables
  *
@@ -33,8 +33,8 @@ function from_async(iterable $awaitables) : \Sabre\Event\Promise
     );
 }
 /**
- * @psalm-template Tk as \arraykey
- * @psalm-template Tv
+ * @template Tk as \arraykey
+ * @template Tv
  *
  * @param iterable<mixed, Tk> $keys
  * @param \Closure(Tk):\Sabre\Event\Promise<Tv> $async_func
@@ -62,8 +62,8 @@ function from_keys_async(iterable $keys, \Closure $async_func) : \Sabre\Event\Pr
     );
 }
 /**
- * @psalm-template Tk as \arraykey
- * @psalm-template Tv
+ * @template Tk as \arraykey
+ * @template Tv
  *
  * @param KeyedContainer<Tk, Tv> $traversable
  * @param \Closure(Tv):\Sabre\Event\Promise<bool> $value_predicate
@@ -87,8 +87,8 @@ function filter_async(KeyedContainer $traversable, \Closure $value_predicate) : 
     );
 }
 /**
- * @psalm-template Tk as \arraykey
- * @psalm-template Tv
+ * @template Tk as \arraykey
+ * @template Tv
  *
  * @param KeyedContainer<Tk, Tv> $traversable
  * @param \Closure(Tk, Tv):\Sabre\Event\Promise<bool> $predicate
@@ -114,9 +114,9 @@ function filter_with_key_async(KeyedContainer $traversable, \Closure $predicate)
     );
 }
 /**
- * @psalm-template Tk as \arraykey
- * @psalm-template Tv1
- * @psalm-template Tv2
+ * @template Tk as \arraykey
+ * @template Tv1
+ * @template Tv2
  *
  * @param iterable<Tk, Tv1> $traversable
  * @param \Closure(Tv1):\Sabre\Event\Promise<Tv2> $value_func

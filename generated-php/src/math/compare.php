@@ -10,7 +10,7 @@
 namespace HH\Lib\Math;
 
 /**
- * @psalm-template T as numeric
+ * @template T as numeric
  *
  * @param T $first
  * @param T $second
@@ -29,7 +29,7 @@ function maxva($first, $second, ...$rest)
     return $max;
 }
 /**
- * @psalm-template T as numeric
+ * @template T as numeric
  *
  * @param T $first
  * @param T $second
