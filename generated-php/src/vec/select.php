@@ -17,8 +17,8 @@ use HH\Lib\{Dict, Keyset};
  * For vecs that contain non-arraykey elements, see `Vec\diff_by()`.
  */
 /**
- * @template Tv1 as \arraykey
- * @template Tv2 as \arraykey
+ * @template Tv1 as array-key
+ * @template Tv2 as array-key
  *
  * @param iterable<mixed, Tv1> $first
  * @param iterable<mixed, Tv2> $second
@@ -41,7 +41,7 @@ function diff(iterable $first, iterable $second, iterable ...$rest) : array
 }
 /**
  * @template Tv
- * @template Ts as \arraykey
+ * @template Ts as array-key
  *
  * @param iterable<mixed, Tv> $first
  * @param iterable<mixed, Tv> $second
@@ -143,7 +143,7 @@ function filter_with_key(iterable $traversable, \Closure $predicate) : array
  * appear in all the other ones. Duplicate values are preserved.
  */
 /**
- * @template Tv as \arraykey
+ * @template Tv as array-key
  *
  * @param iterable<mixed, Tv> $first
  * @param iterable<mixed, Tv> $second
@@ -232,7 +232,7 @@ function take(iterable $traversable, int $n) : array
     return $result;
 }
 /**
- * @template Tv as \arraykey
+ * @template Tv as array-key
  *
  * @param iterable<mixed, Tv> $traversable
  *
@@ -244,7 +244,7 @@ function unique(iterable $traversable) : array
 }
 /**
  * @template Tv
- * @template Ts as \arraykey
+ * @template Ts as array-key
  *
  * @param iterable<mixed, Tv> $traversable
  * @param \Closure(Tv):Ts $scalar_func

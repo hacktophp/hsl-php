@@ -11,7 +11,7 @@ namespace HH\Lib\Dict;
 
 use HH\Lib\C;
 /**
- * @template Tk as \arraykey
+ * @template Tk as array-key
  * @template Tv
  *
  * @param iterable<mixed, Tk> $keys
@@ -35,7 +35,7 @@ function associate(iterable $keys, iterable $values) : array
  * keys, later values will overwrite the previous ones.
  */
 /**
- * @template Tk as \arraykey
+ * @template Tk as array-key
  * @template Tv
  *
  * @param iterable<Tk, Tv> $first

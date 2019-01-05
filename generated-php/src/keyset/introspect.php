@@ -11,7 +11,7 @@ namespace HH\Lib\Keyset;
 
 use HH\Lib\C;
 /**
- * @template Tv as \arraykey
+ * @template Tv as array-key
  *
  * @param array<Tv, Tv> $keyset1
  * @param array<Tv, Tv> $keyset2

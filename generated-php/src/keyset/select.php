@@ -14,8 +14,8 @@ namespace HH\Lib\Keyset;
  * that do not appear in any of the other ones.
  */
 /**
- * @template Tv1 as \arraykey
- * @template Tv2 as \arraykey
+ * @template Tv1 as array-key
+ * @template Tv2 as array-key
  *
  * @param iterable<mixed, Tv1> $first
  * @param iterable<mixed, Tv2> $second
@@ -37,7 +37,7 @@ function diff(iterable $first, iterable $second, iterable ...$rest) : array
     });
 }
 /**
- * @template Tv as \arraykey
+ * @template Tv as array-key
  *
  * @param iterable<mixed, Tv> $traversable
  *
@@ -58,7 +58,7 @@ function drop(iterable $traversable, int $n) : array
     return $result;
 }
 /**
- * @template Tv as \arraykey
+ * @template Tv as array-key
  *
  * @param iterable<mixed, Tv> $traversable
  * @param null|\Closure(Tv):bool $value_predicate
@@ -77,7 +77,7 @@ function filter(iterable $traversable, ?\Closure $value_predicate = null) : arra
     return $result;
 }
 /**
- * @template Tv as \arraykey
+ * @template Tv as array-key
  *
  * @param iterable<mixed, null|Tv> $traversable
  *
@@ -95,7 +95,7 @@ function filter_nulls(iterable $traversable) : array
 }
 /**
  * @template Tk
- * @template Tv as \arraykey
+ * @template Tv as array-key
  *
  * @param iterable<Tk, Tv> $traversable
  * @param \Closure(Tk, Tv):bool $predicate
@@ -113,7 +113,7 @@ function filter_with_key(iterable $traversable, \Closure $predicate) : array
     return $result;
 }
 /**
- * @template Tk as \arraykey
+ * @template Tk as array-key
  * @template Tv
  *
  * @param iterable<Tk, Tv> $traversable
@@ -133,7 +133,7 @@ function keys(iterable $traversable) : array
  * that appear in all the other ones.
  */
 /**
- * @template Tv as \arraykey
+ * @template Tv as array-key
  *
  * @param iterable<mixed, Tv> $first
  * @param iterable<mixed, Tv> $second
@@ -160,7 +160,7 @@ function intersect(iterable $first, iterable $second, iterable ...$rest) : array
     return $intersection;
 }
 /**
- * @template Tv as \arraykey
+ * @template Tv as array-key
  *
  * @param iterable<mixed, Tv> $traversable
  *

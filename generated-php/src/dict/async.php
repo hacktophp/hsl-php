@@ -11,7 +11,7 @@ namespace HH\Lib\Dict;
 
 use HH\Lib\C;
 /**
- * @template Tk as \arraykey
+ * @template Tk as array-key
  * @template Tv
  *
  * @param iterable<Tk, \Sabre\Event\Promise<Tv>> $awaitables
@@ -33,7 +33,7 @@ function from_async(iterable $awaitables) : \Sabre\Event\Promise
     );
 }
 /**
- * @template Tk as \arraykey
+ * @template Tk as array-key
  * @template Tv
  *
  * @param iterable<mixed, Tk> $keys
@@ -62,7 +62,7 @@ function from_keys_async(iterable $keys, \Closure $async_func) : \Sabre\Event\Pr
     );
 }
 /**
- * @template Tk as \arraykey
+ * @template Tk as array-key
  * @template Tv
  *
  * @param KeyedContainer<Tk, Tv> $traversable
@@ -87,7 +87,7 @@ function filter_async(KeyedContainer $traversable, \Closure $value_predicate) : 
     );
 }
 /**
- * @template Tk as \arraykey
+ * @template Tk as array-key
  * @template Tv
  *
  * @param KeyedContainer<Tk, Tv> $traversable
@@ -114,7 +114,7 @@ function filter_with_key_async(KeyedContainer $traversable, \Closure $predicate)
     );
 }
 /**
- * @template Tk as \arraykey
+ * @template Tk as array-key
  * @template Tv1
  * @template Tv2
  *

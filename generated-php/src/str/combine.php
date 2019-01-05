@@ -10,7 +10,7 @@
 namespace HH\Lib\Str;
 
 /**
- * @param iterable<mixed, \arraykey> $pieces
+ * @param iterable<mixed, array-key> $pieces
  */
 function join(iterable $pieces, string $glue) : string
 {

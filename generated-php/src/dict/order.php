@@ -11,7 +11,7 @@ namespace HH\Lib\Dict;
 
 use HH\Lib\Vec;
 /**
- * @template Tk as \arraykey
+ * @template Tk as array-key
  * @template Tv
  *
  * @param iterable<Tk, Tv> $traversable
@@ -26,7 +26,7 @@ function reverse(iterable $traversable) : array
     });
 }
 /**
- * @template Tk as \arraykey
+ * @template Tk as array-key
  * @template Tv
  *
  * @param iterable<Tk, Tv> $traversable
@@ -45,7 +45,7 @@ function sort(iterable $traversable, ?\Closure $value_comparator = null) : array
     return $result;
 }
 /**
- * @template Tk as \arraykey
+ * @template Tk as array-key
  * @template Tv
  * @template Ts
  *
@@ -69,7 +69,7 @@ function sort_by(iterable $traversable, \Closure $scalar_func, ?\Closure $scalar
     });
 }
 /**
- * @template Tk as \arraykey
+ * @template Tk as array-key
  * @template Tv
  *
  * @param iterable<Tk, Tv> $traversable

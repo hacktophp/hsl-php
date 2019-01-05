@@ -11,7 +11,7 @@ namespace HH\Lib\Dict;
 
 use HH\Lib\Math;
 /**
- * @template Tk as \arraykey
+ * @template Tk as array-key
  * @template Tv
  *
  * @param iterable<Tk, Tv> $traversable
@@ -33,7 +33,7 @@ function chunk(iterable $traversable, int $size) : array
     return $result;
 }
 /**
- * @template Tv as \arraykey
+ * @template Tv as array-key
  *
  * @param iterable<mixed, Tv> $values
  *
@@ -48,7 +48,7 @@ function count_values(iterable $values) : array
     return $result;
 }
 /**
- * @template Tk as \arraykey
+ * @template Tk as array-key
  * @template Tv
  *
  * @param iterable<mixed, \HH\Rx\KeyedTraversable<Tk, Tv>> $traversables
@@ -66,7 +66,7 @@ function flatten(iterable $traversables) : array
     return $result;
 }
 /**
- * @template Tk as \arraykey
+ * @template Tk as array-key
  * @template Tv
  *
  * @param iterable<mixed, Tk> $keys
@@ -84,7 +84,7 @@ function fill_keys(iterable $keys, $value) : array
 }
 /**
  * @template Tk
- * @template Tv as \arraykey
+ * @template Tv as array-key
  *
  * @param iterable<Tk, Tv> $traversable
  *
@@ -99,7 +99,7 @@ function flip(iterable $traversable) : array
     return $result;
 }
 /**
- * @template Tk as \arraykey
+ * @template Tk as array-key
  * @template Tv
  *
  * @param iterable<mixed, Tk> $keys
@@ -116,7 +116,7 @@ function from_keys(iterable $keys, \Closure $value_func) : array
     return $result;
 }
 /**
- * @template Tk as \arraykey
+ * @template Tk as array-key
  * @template Tv
  *
  * @param iterable<mixed, array{0:Tk, 1:Tv}> $entries
@@ -132,7 +132,7 @@ function from_entries(iterable $entries) : array
     return $result;
 }
 /**
- * @template Tk as \arraykey
+ * @template Tk as array-key
  * @template Tv
  *
  * @param iterable<mixed, Tv> $values
@@ -149,7 +149,7 @@ function from_values(iterable $values, \Closure $key_func) : array
     return $result;
 }
 /**
- * @template Tk as \arraykey
+ * @template Tk as array-key
  * @template Tv
  *
  * @param iterable<mixed, Tv> $values
@@ -173,7 +173,7 @@ function group_by(iterable $values, \Closure $key_func) : array
     return $result;
 }
 /**
- * @template Tk as \arraykey
+ * @template Tk as array-key
  * @template Tv1
  * @template Tv2
  *
@@ -192,7 +192,7 @@ function map(iterable $traversable, \Closure $value_func) : array
 }
 /**
  * @template Tk1
- * @template Tk2 as \arraykey
+ * @template Tk2 as array-key
  * @template Tv
  *
  * @param iterable<Tk1, Tv> $traversable
@@ -209,7 +209,7 @@ function map_keys(iterable $traversable, \Closure $key_func) : array
     return $result;
 }
 /**
- * @template Tk as \arraykey
+ * @template Tk as array-key
  * @template Tv1
  * @template Tv2
  *
@@ -227,7 +227,7 @@ function map_with_key(iterable $traversable, \Closure $value_func) : array
     return $result;
 }
 /**
- * @template Tk as \arraykey
+ * @template Tk as array-key
  * @template Tv1
  * @template Tv2
  *
@@ -247,7 +247,7 @@ function pull(iterable $traversable, \Closure $value_func, \Closure $key_func) :
 }
 /**
  * @template Tk1
- * @template Tk2 as \arraykey
+ * @template Tk2 as array-key
  * @template Tv1
  * @template Tv2
  *

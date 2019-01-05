@@ -16,7 +16,7 @@ namespace HH\Lib\Keyset;
  * For a variable number of Traversables, see `Keyset\flatten()`.
  */
 /**
- * @template Tv as \arraykey
+ * @template Tv as array-key
  *
  * @param iterable<mixed, Tv> $first
  * @param iterable<mixed, Tv> $rest

@@ -10,7 +10,7 @@
 namespace HH\Lib\Dict;
 
 /**
- * @template Tk as \arraykey
+ * @template Tk as array-key
  * @template Tv
  *
  * @param iterable<Tk, Tv> $traversable
@@ -32,7 +32,7 @@ function partition(iterable $traversable, \Closure $predicate) : array
     return [$success, $failure];
 }
 /**
- * @template Tk as \arraykey
+ * @template Tk as array-key
  * @template Tv
  *
  * @param iterable<Tk, Tv> $traversable

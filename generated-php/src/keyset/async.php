@@ -11,7 +11,7 @@ namespace HH\Lib\Keyset;
 
 use HH\Lib\Vec;
 /**
- * @template Tv as \arraykey
+ * @template Tv as array-key
  *
  * @param iterable<mixed, \Sabre\Event\Promise<Tv>> $awaitables
  *
@@ -28,7 +28,7 @@ function from_async(iterable $awaitables) : \Sabre\Event\Promise
     );
 }
 /**
- * @template Tv as \arraykey
+ * @template Tv as array-key
  *
  * @param Container<Tv> $traversable
  * @param \Closure(Tv):\Sabre\Event\Promise<bool> $value_predicate
@@ -55,7 +55,7 @@ function filter_async(Container $traversable, \Closure $value_predicate) : \Sabr
 }
 /**
  * @template Tv
- * @template Tk as \arraykey
+ * @template Tk as array-key
  *
  * @param iterable<mixed, Tv> $traversable
  * @param \Closure(Tv):\Sabre\Event\Promise<Tk> $async_func

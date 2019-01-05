@@ -13,7 +13,7 @@ use HH\Lib\Math;
 use HH\Lib\_Private\StubPHPism_FIXME as PHPism_FIXME;
 use function HH\Lib\_Private\universal_chainable_stub as FBLogger;
 /**
- * @template Tv as \arraykey
+ * @template Tv as array-key
  *
  * @param iterable<mixed, Tv> $traversable
  *
@@ -35,7 +35,7 @@ function chunk(iterable $traversable, int $size) : array
 }
 /**
  * @template Tv1
- * @template Tv2 as \arraykey
+ * @template Tv2 as array-key
  *
  * @param iterable<mixed, Tv1> $traversable
  * @param \Closure(Tv1):Tv2 $value_func
@@ -53,7 +53,7 @@ function map(iterable $traversable, \Closure $value_func) : array
 /**
  * @template Tk
  * @template Tv1
- * @template Tv2 as \arraykey
+ * @template Tv2 as array-key
  *
  * @param iterable<Tk, Tv1> $traversable
  * @param \Closure(Tk, Tv1):Tv2 $value_func
@@ -76,7 +76,7 @@ function map_with_key(iterable $traversable, \Closure $value_func) : array
  * For a fixed number of Traversables, see `Keyset\union()`.
  */
 /**
- * @template Tv as \arraykey
+ * @template Tv as array-key
  *
  * @param iterable<mixed, iterable<mixed, Tv>> $traversables
  *

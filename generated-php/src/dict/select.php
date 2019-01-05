@@ -14,8 +14,8 @@ namespace HH\Lib\Dict;
  * whose keys do not appear in any of the other ones.
  */
 /**
- * @template Tk1 as \arraykey
- * @template Tk2 as \arraykey
+ * @template Tk1 as array-key
+ * @template Tk2 as array-key
  * @template Tv
  *
  * @param iterable<Tk1, Tv> $first
@@ -38,7 +38,7 @@ function diff_by_key(iterable $first, iterable $second, iterable ...$rest) : arr
     });
 }
 /**
- * @template Tk as \arraykey
+ * @template Tk as array-key
  * @template Tv
  *
  * @param iterable<Tk, Tv> $traversable
@@ -60,7 +60,7 @@ function drop(iterable $traversable, int $n) : array
     return $result;
 }
 /**
- * @template Tk as \arraykey
+ * @template Tk as array-key
  * @template Tv
  *
  * @param iterable<Tk, Tv> $traversable
@@ -80,7 +80,7 @@ function filter(iterable $traversable, ?\Closure $value_predicate = null) : arra
     return $dict;
 }
 /**
- * @template Tk as \arraykey
+ * @template Tk as array-key
  * @template Tv
  *
  * @param iterable<Tk, Tv> $traversable
@@ -99,7 +99,7 @@ function filter_with_key(iterable $traversable, \Closure $predicate) : array
     return $dict;
 }
 /**
- * @template Tk as \arraykey
+ * @template Tk as array-key
  * @template Tv
  *
  * @param iterable<Tk, Tv> $traversable
@@ -119,7 +119,7 @@ function filter_keys(iterable $traversable, ?\Closure $key_predicate = null) : a
     return $dict;
 }
 /**
- * @template Tk as \arraykey
+ * @template Tk as array-key
  * @template Tv
  *
  * @param iterable<Tk, null|Tv> $traversable
@@ -137,7 +137,7 @@ function filter_nulls(iterable $traversable) : array
     return $result;
 }
 /**
- * @template Tk as \arraykey
+ * @template Tk as array-key
  * @template Tv
  *
  * @param KeyedContainer<Tk, Tv> $container
@@ -156,7 +156,7 @@ function select_keys(KeyedContainer $container, iterable $keys) : array
     return $result;
 }
 /**
- * @template Tk as \arraykey
+ * @template Tk as array-key
  * @template Tv
  *
  * @param iterable<Tk, Tv> $traversable
@@ -181,8 +181,8 @@ function take(iterable $traversable, int $n) : array
     return $result;
 }
 /**
- * @template Tk as \arraykey
- * @template Tv as \arraykey
+ * @template Tk as array-key
+ * @template Tv as array-key
  *
  * @param iterable<Tk, Tv> $traversable
  *
@@ -193,9 +193,9 @@ function unique(iterable $traversable) : array
     return flip(flip($traversable));
 }
 /**
- * @template Tk as \arraykey
+ * @template Tk as array-key
  * @template Tv
- * @template Ts as \arraykey
+ * @template Ts as array-key
  *
  * @param KeyedContainer<Tk, Tv> $container
  * @param \Closure(Tv):Ts $scalar_func

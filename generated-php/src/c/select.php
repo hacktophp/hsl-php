@@ -211,7 +211,7 @@ function last_keyx(iterable $traversable)
 /**
  * @template T
  *
- * @param iterable<mixed, T>|null $traversable
+ * @param null|iterable<mixed, T> $traversable
  *
  * @return null|T
  */
