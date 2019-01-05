@@ -61,7 +61,7 @@ final class UniversalChainableStub
     }
 }
 /**
- * @param mixed $_0
+ * @param mixed ...$_0
  */
 function universal_chainable_stub(...$_0) : UniversalChainableStub
 {

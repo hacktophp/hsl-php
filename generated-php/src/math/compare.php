@@ -14,7 +14,7 @@ namespace HH\Lib\Math;
  *
  * @param T $first
  * @param T $second
- * @param T $rest
+ * @param T ...$rest
  *
  * @return T
  */
@@ -33,7 +33,7 @@ function maxva($first, $second, ...$rest)
  *
  * @param T $first
  * @param T $second
- * @param T $rest
+ * @param T ...$rest
  *
  * @return T
  */

@@ -20,7 +20,7 @@ namespace HH\Lib\Dict;
  *
  * @param iterable<Tk1, Tv> $first
  * @param iterable<Tk2, mixed> $second
- * @param iterable<Tk2, mixed> $rest
+ * @param iterable<Tk2, mixed> ...$rest
  *
  * @return array<Tk1, Tv>
  */
@@ -140,12 +140,12 @@ function filter_nulls(iterable $traversable) : array
  * @template Tk as array-key
  * @template Tv
  *
- * @param KeyedContainer<Tk, Tv> $container
+ * @param iterable<Tk, Tv> $container
  * @param iterable<mixed, Tk> $keys
  *
  * @return array<Tk, Tv>
  */
-function select_keys(KeyedContainer $container, iterable $keys) : array
+function select_keys(iterable $container, iterable $keys) : array
 {
     $result = [];
     foreach ($keys as $key) {
@@ -197,12 +197,12 @@ function unique(iterable $traversable) : array
  * @template Tv
  * @template Ts as array-key
  *
- * @param KeyedContainer<Tk, Tv> $container
+ * @param iterable<Tk, Tv> $container
  * @param \Closure(Tv):Ts $scalar_func
  *
  * @return array<Tk, Tv>
  */
-function unique_by(KeyedContainer $container, \Closure $scalar_func) : array
+function unique_by(iterable $container, \Closure $scalar_func) : array
 {
     // We first convert the container to dict[scalar_key => original_key] to
     // remove duplicates, then back to dict[original_key => original_value].

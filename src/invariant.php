@@ -3,6 +3,7 @@
 namespace {
 	/**
 	 * @param  mixed $condition
+	 * @psalm-assert !falsy $condition
 	 */
 	function invariant(
 	  $condition,

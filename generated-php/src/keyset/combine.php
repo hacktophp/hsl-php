@@ -19,7 +19,7 @@ namespace HH\Lib\Keyset;
  * @template Tv as array-key
  *
  * @param iterable<mixed, Tv> $first
- * @param iterable<mixed, Tv> $rest
+ * @param iterable<mixed, Tv> ...$rest
  *
  * @return array<Tv, Tv>
  */

@@ -22,7 +22,7 @@ use HH\Lib\{Dict, Keyset};
  *
  * @param iterable<mixed, Tv1> $first
  * @param iterable<mixed, Tv2> $second
- * @param iterable<mixed, Tv2> $rest
+ * @param iterable<mixed, Tv2> ...$rest
  *
  * @return array<int, Tv1>
  */
@@ -147,7 +147,7 @@ function filter_with_key(iterable $traversable, \Closure $predicate) : array
  *
  * @param iterable<mixed, Tv> $first
  * @param iterable<mixed, Tv> $second
- * @param iterable<mixed, Tv> $rest
+ * @param iterable<mixed, Tv> ...$rest
  *
  * @return array<int, Tv>
  */
@@ -197,11 +197,11 @@ function sample(iterable $traversable, int $sample_size) : array
 /**
  * @template Tv
  *
- * @param Container<Tv> $container
+ * @param iterable<mixed, Tv> $container
  *
  * @return array<int, Tv>
  */
-function slice(Container $container, int $offset, ?int $length = null) : array
+function slice(iterable $container, int $offset, ?int $length = null) : array
 {
     invariant($offset >= 0, 'Expected non-negative offset.');
     invariant($length === null || $length >= 0, 'Expected non-negative length.');

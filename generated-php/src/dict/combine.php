@@ -39,7 +39,7 @@ function associate(iterable $keys, iterable $values) : array
  * @template Tv
  *
  * @param iterable<Tk, Tv> $first
- * @param iterable<Tk, Tv> $rest
+ * @param iterable<Tk, Tv> ...$rest
  *
  * @return array<Tk, Tv>
  */

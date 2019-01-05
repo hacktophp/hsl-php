@@ -49,9 +49,9 @@ function max_by(iterable $traversable, \Closure $num_func)
     return $max;
 }
 /**
- * @param Container<numeric> $numbers
+ * @param iterable<mixed, numeric> $numbers
  */
-function mean(Container $numbers) : ?float
+function mean(iterable $numbers) : ?float
 {
     $count = (double) \count($numbers);
     if ($count === 0.0) {
@@ -64,9 +64,9 @@ function mean(Container $numbers) : ?float
     return $mean;
 }
 /**
- * @param Container<numeric> $numbers
+ * @param iterable<mixed, numeric> $numbers
  */
-function median(Container $numbers) : ?float
+function median(iterable $numbers) : ?float
 {
     $numbers = Vec\sort($numbers);
     $count = \count($numbers);

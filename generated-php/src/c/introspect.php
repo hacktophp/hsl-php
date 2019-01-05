@@ -51,19 +51,19 @@ function contains(iterable $traversable, $value) : bool
  * @template Tk
  * @template Tv
  *
- * @param KeyedContainer<Tk, Tv> $container
+ * @param iterable<Tk, Tv> $container
  * @param Tk $key
  */
-function contains_key(KeyedContainer $container, $key) : bool
+function contains_key(iterable $container, $key) : bool
 {
     return \array_key_exists($key, $container);
 }
 /**
  * @template T
  *
- * @param Container<T> $container
+ * @param iterable<mixed, T> $container
  */
-function count(Container $container) : int
+function count(iterable $container) : int
 {
     return \count($container);
 }
@@ -86,9 +86,9 @@ function every(iterable $traversable, ?\Closure $predicate = null) : bool
 /**
  * @template T
  *
- * @param Container<T> $container
+ * @param iterable<mixed, T> $container
  */
-function is_empty(Container $container) : bool
+function is_empty(iterable $container) : bool
 {
     return !$container;
 }

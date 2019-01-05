@@ -48,10 +48,16 @@ function base_convert(string $value, int $from_base, int $to_base) : string
     } while (\bccomp($result_decimal, '0') > 0);
     return $result;
 }
+/**
+ * @param numeric $value
+ */
 function ceil($value) : float
 {
     return \ceil($value);
 }
+/**
+ * @param numeric $arg
+ */
 function cos($arg) : float
 {
     return \cos($arg);
@@ -63,10 +69,16 @@ function from_base(string $number, int $from_base) : int
     invariant($result !== null, 'Unexpected integer overflow parsing %s from base %d', $number, $from_base);
     return $result;
 }
+/**
+ * @param numeric $arg
+ */
 function exp($arg) : float
 {
     return \exp($arg);
 }
+/**
+ * @param numeric $value
+ */
 function floor($value) : float
 {
     return \floor($value);
@@ -78,6 +90,10 @@ function int_div(int $numerator, int $denominator) : int
     }
     return \intdiv($numerator, $denominator);
 }
+/**
+ * @param numeric $arg
+ * @param null|numeric $base
+ */
 function log($arg, $base = null) : float
 {
     invariant($arg > 0, 'Expected positive argument for log, got %f', $arg);
@@ -88,19 +104,31 @@ function log($arg, $base = null) : float
     invariant($base !== 1, 'Logarithm undefined for base 1');
     return \log($arg, $base);
 }
+/**
+ * @param numeric $val
+ */
 function round($val, int $precision = 0) : float
 {
     return \round($val, $precision);
 }
+/**
+ * @param numeric $arg
+ */
 function sin($arg) : float
 {
     return \sin($arg);
 }
+/**
+ * @param numeric $arg
+ */
 function sqrt($arg) : float
 {
     invariant($arg >= 0, 'Expected non-negative argument to sqrt, got %f', $arg);
     return \sqrt($arg);
 }
+/**
+ * @param numeric $arg
+ */
 function tan($arg) : float
 {
     return \tan($arg);

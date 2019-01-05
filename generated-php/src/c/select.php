@@ -228,7 +228,7 @@ function nfirst(?iterable $traversable)
  * @template T
  *
  * @param iterable<mixed, T> $traversable
- * @param mixed $format_args
+ * @param mixed ...$format_args
  *
  * @return T
  */

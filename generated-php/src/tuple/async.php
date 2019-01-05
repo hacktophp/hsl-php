@@ -33,7 +33,7 @@ namespace HH\Lib\Tuple;
  * expressed in Hack; this function is special-cased in the typechecker.
  */
 /**
- * @param \Sabre\Event\Promise<mixed>|null $awaitables
+ * @param \Sabre\Event\Promise<mixed>|null ...$awaitables
  *
  * @return \Sabre\Event\Promise<mixed>
  */

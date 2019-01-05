@@ -65,12 +65,12 @@ function from_keys_async(iterable $keys, \Closure $async_func) : \Sabre\Event\Pr
  * @template Tk as array-key
  * @template Tv
  *
- * @param KeyedContainer<Tk, Tv> $traversable
+ * @param iterable<Tk, Tv> $traversable
  * @param \Closure(Tv):\Sabre\Event\Promise<bool> $value_predicate
  *
  * @return \Sabre\Event\Promise<array<Tk, Tv>>
  */
-function filter_async(KeyedContainer $traversable, \Closure $value_predicate) : \Sabre\Event\Promise
+function filter_async(iterable $traversable, \Closure $value_predicate) : \Sabre\Event\Promise
 {
     return \Sabre\Event\coroutine(
         /** @return \Generator<int, mixed, void, array<Tk, Tv>> */
@@ -90,12 +90,12 @@ function filter_async(KeyedContainer $traversable, \Closure $value_predicate) : 
  * @template Tk as array-key
  * @template Tv
  *
- * @param KeyedContainer<Tk, Tv> $traversable
+ * @param iterable<Tk, Tv> $traversable
  * @param \Closure(Tk, Tv):\Sabre\Event\Promise<bool> $predicate
  *
  * @return \Sabre\Event\Promise<array<Tk, Tv>>
  */
-function filter_with_key_async(KeyedContainer $traversable, \Closure $predicate) : \Sabre\Event\Promise
+function filter_with_key_async(iterable $traversable, \Closure $predicate) : \Sabre\Event\Promise
 {
     return \Sabre\Event\coroutine(
         /** @return \Generator<int, mixed, void, array<Tk, Tv>> */

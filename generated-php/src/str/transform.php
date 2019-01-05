@@ -18,6 +18,9 @@ function capitalize_words(string $string, string $delimiters = " \t\r\n\f\v") : 
 {
     return \ucwords($string, $delimiters);
 }
+/**
+ * @param numeric $number
+ */
 function format_number($number, int $decimals = 0, string $decimal_point = '.', string $thousands_separator = ',') : string
 {
     return \number_format($number, $decimals, $decimal_point, $thousands_separator);
@@ -52,9 +55,9 @@ function replace_ci(string $haystack, string $needle, string $replacement) : str
     return \str_ireplace($needle, $replacement, $haystack);
 }
 /**
- * @param KeyedContainer<string, string> $replacements
+ * @param iterable<string, string> $replacements
  */
-function replace_every(string $haystack, KeyedContainer $replacements) : string
+function replace_every(string $haystack, iterable $replacements) : string
 {
     return \str_replace(\array_keys($replacements), \array_values($replacements), $haystack);
 }

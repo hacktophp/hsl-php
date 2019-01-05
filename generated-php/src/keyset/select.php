@@ -19,7 +19,7 @@ namespace HH\Lib\Keyset;
  *
  * @param iterable<mixed, Tv1> $first
  * @param iterable<mixed, Tv2> $second
- * @param iterable<mixed, Tv2> $rest
+ * @param iterable<mixed, Tv2> ...$rest
  *
  * @return array<Tv1, Tv1>
  */
@@ -137,7 +137,7 @@ function keys(iterable $traversable) : array
  *
  * @param iterable<mixed, Tv> $first
  * @param iterable<mixed, Tv> $second
- * @param iterable<mixed, Tv> $rest
+ * @param iterable<mixed, Tv> ...$rest
  *
  * @return array<Tv, Tv>
  */

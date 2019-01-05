@@ -30,12 +30,12 @@ function from_async(iterable $awaitables) : \Sabre\Event\Promise
 /**
  * @template Tv as array-key
  *
- * @param Container<Tv> $traversable
+ * @param iterable<mixed, Tv> $traversable
  * @param \Closure(Tv):\Sabre\Event\Promise<bool> $value_predicate
  *
  * @return \Sabre\Event\Promise<array<Tv, Tv>>
  */
-function filter_async(Container $traversable, \Closure $value_predicate) : \Sabre\Event\Promise
+function filter_async(iterable $traversable, \Closure $value_predicate) : \Sabre\Event\Promise
 {
     return \Sabre\Event\coroutine(
         /** @return \Generator<int, mixed, void, array<Tv, Tv>> */
