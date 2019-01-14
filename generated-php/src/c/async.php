@@ -22,13 +22,13 @@ namespace HH\Lib\C;
 /**
  * @template T
  *
- * @param \Sabre\Event\Promise<iterable<mixed, T>> $awaitable
+ * @param \Amp\Promise<iterable<mixed, T>> $awaitable
  *
- * @return \Sabre\Event\Promise<null|T>
+ * @return \Amp\Promise<null|T>
  */
-function first_async(\Sabre\Event\Promise $awaitable) : \Sabre\Event\Promise
+function first_async(\Amp\Promise $awaitable) : \Amp\Promise
 {
-    return \Sabre\Event\coroutine(
+    return \Amp\call(
         /** @return \Generator<int, mixed, void, null|T> */
         function () use($awaitable) : \Generator {
             $traversable = (yield $awaitable);
@@ -45,13 +45,13 @@ function first_async(\Sabre\Event\Promise $awaitable) : \Sabre\Event\Promise
 /**
  * @template T
  *
- * @param \Sabre\Event\Promise<iterable<mixed, T>> $awaitable
+ * @param \Amp\Promise<iterable<mixed, T>> $awaitable
  *
- * @return \Sabre\Event\Promise<T>
+ * @return \Amp\Promise<T>
  */
-function firstx_async(\Sabre\Event\Promise $awaitable) : \Sabre\Event\Promise
+function firstx_async(\Amp\Promise $awaitable) : \Amp\Promise
 {
-    return \Sabre\Event\coroutine(
+    return \Amp\call(
         /** @return \Generator<int, mixed, void, T> */
         function () use($awaitable) : \Generator {
             $traversable = (yield $awaitable);

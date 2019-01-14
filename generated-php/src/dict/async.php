@@ -14,13 +14,13 @@ use HH\Lib\C;
  * @template Tk as array-key
  * @template Tv
  *
- * @param iterable<Tk, \Sabre\Event\Promise<Tv>> $awaitables
+ * @param iterable<Tk, \Amp\Promise<Tv>> $awaitables
  *
- * @return \Sabre\Event\Promise<array<Tk, Tv>>
+ * @return \Amp\Promise<array<Tk, Tv>>
  */
-function from_async(iterable $awaitables) : \Sabre\Event\Promise
+function from_async(iterable $awaitables) : \Amp\Promise
 {
-    return \Sabre\Event\coroutine(
+    return \Amp\call(
         /** @return \Generator<int, mixed, void, array<Tk, Tv>> */
         function () use($awaitables) : \Generator {
             $awaitables = (array) $awaitables;
@@ -37,13 +37,13 @@ function from_async(iterable $awaitables) : \Sabre\Event\Promise
  * @template Tv
  *
  * @param iterable<mixed, Tk> $keys
- * @param \Closure(Tk):\Sabre\Event\Promise<Tv> $async_func
+ * @param \Closure(Tk):\Amp\Promise<Tv> $async_func
  *
- * @return \Sabre\Event\Promise<array<Tk, Tv>>
+ * @return \Amp\Promise<array<Tk, Tv>>
  */
-function from_keys_async(iterable $keys, \Closure $async_func) : \Sabre\Event\Promise
+function from_keys_async(iterable $keys, \Closure $async_func) : \Amp\Promise
 {
-    return \Sabre\Event\coroutine(
+    return \Amp\call(
         /** @return \Generator<int, mixed, void, array<Tk, Tv>> */
         function () use($keys, $async_func) : \Generator {
             $awaitables = [];
@@ -66,13 +66,13 @@ function from_keys_async(iterable $keys, \Closure $async_func) : \Sabre\Event\Pr
  * @template Tv
  *
  * @param iterable<Tk, Tv> $traversable
- * @param \Closure(Tv):\Sabre\Event\Promise<bool> $value_predicate
+ * @param \Closure(Tv):\Amp\Promise<bool> $value_predicate
  *
- * @return \Sabre\Event\Promise<array<Tk, Tv>>
+ * @return \Amp\Promise<array<Tk, Tv>>
  */
-function filter_async(iterable $traversable, \Closure $value_predicate) : \Sabre\Event\Promise
+function filter_async(iterable $traversable, \Closure $value_predicate) : \Amp\Promise
 {
-    return \Sabre\Event\coroutine(
+    return \Amp\call(
         /** @return \Generator<int, mixed, void, array<Tk, Tv>> */
         function () use($traversable, $value_predicate) : \Generator {
             $tests = (yield map_async($traversable, $value_predicate));
@@ -91,13 +91,13 @@ function filter_async(iterable $traversable, \Closure $value_predicate) : \Sabre
  * @template Tv
  *
  * @param iterable<Tk, Tv> $traversable
- * @param \Closure(Tk, Tv):\Sabre\Event\Promise<bool> $predicate
+ * @param \Closure(Tk, Tv):\Amp\Promise<bool> $predicate
  *
- * @return \Sabre\Event\Promise<array<Tk, Tv>>
+ * @return \Amp\Promise<array<Tk, Tv>>
  */
-function filter_with_key_async(iterable $traversable, \Closure $predicate) : \Sabre\Event\Promise
+function filter_with_key_async(iterable $traversable, \Closure $predicate) : \Amp\Promise
 {
-    return \Sabre\Event\coroutine(
+    return \Amp\call(
         /** @return \Generator<int, mixed, void, array<Tk, Tv>> */
         function () use($traversable, $predicate) : \Generator {
             $tests = (yield from_async(map_with_key($traversable, function ($k, $v) use($predicate) {
@@ -119,13 +119,13 @@ function filter_with_key_async(iterable $traversable, \Closure $predicate) : \Sa
  * @template Tv2
  *
  * @param iterable<Tk, Tv1> $traversable
- * @param \Closure(Tv1):\Sabre\Event\Promise<Tv2> $value_func
+ * @param \Closure(Tv1):\Amp\Promise<Tv2> $value_func
  *
- * @return \Sabre\Event\Promise<array<Tk, Tv2>>
+ * @return \Amp\Promise<array<Tk, Tv2>>
  */
-function map_async(iterable $traversable, \Closure $value_func) : \Sabre\Event\Promise
+function map_async(iterable $traversable, \Closure $value_func) : \Amp\Promise
 {
-    return \Sabre\Event\coroutine(
+    return \Amp\call(
         /** @return \Generator<int, mixed, void, array<Tk, Tv2>> */
         function () use($traversable, $value_func) : \Generator {
             $traversable = (array) $traversable;

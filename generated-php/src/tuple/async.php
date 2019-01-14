@@ -33,13 +33,13 @@ namespace HH\Lib\Tuple;
  * expressed in Hack; this function is special-cased in the typechecker.
  */
 /**
- * @param \Sabre\Event\Promise<mixed>|null ...$awaitables
+ * @param \Amp\Promise<mixed>|null ...$awaitables
  *
- * @return \Sabre\Event\Promise<mixed>
+ * @return \Amp\Promise<mixed>
  */
-function from_async(?\Sabre\Event\Promise ...$awaitables) : \Sabre\Event\Promise
+function from_async(?\Amp\Promise ...$awaitables) : \Amp\Promise
 {
-    return \Sabre\Event\coroutine(
+    return \Amp\call(
         /** @return \Generator<int, mixed, void, mixed> */
         function () use($awaitables) : \Generator {
             // @oss-disable: $awaitables = \varray($awaitables);

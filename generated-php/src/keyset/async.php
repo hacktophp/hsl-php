@@ -13,13 +13,13 @@ use HH\Lib\Vec;
 /**
  * @template Tv as array-key
  *
- * @param iterable<mixed, \Sabre\Event\Promise<Tv>> $awaitables
+ * @param iterable<mixed, \Amp\Promise<Tv>> $awaitables
  *
- * @return \Sabre\Event\Promise<array<Tv, Tv>>
+ * @return \Amp\Promise<array<Tv, Tv>>
  */
-function from_async(iterable $awaitables) : \Sabre\Event\Promise
+function from_async(iterable $awaitables) : \Amp\Promise
 {
-    return \Sabre\Event\coroutine(
+    return \Amp\call(
         /** @return \Generator<int, mixed, void, array<Tv, Tv>> */
         function () use($awaitables) : \Generator {
             $vec = (yield Vec\from_async($awaitables));
@@ -31,13 +31,13 @@ function from_async(iterable $awaitables) : \Sabre\Event\Promise
  * @template Tv as array-key
  *
  * @param iterable<mixed, Tv> $traversable
- * @param \Closure(Tv):\Sabre\Event\Promise<bool> $value_predicate
+ * @param \Closure(Tv):\Amp\Promise<bool> $value_predicate
  *
- * @return \Sabre\Event\Promise<array<Tv, Tv>>
+ * @return \Amp\Promise<array<Tv, Tv>>
  */
-function filter_async(iterable $traversable, \Closure $value_predicate) : \Sabre\Event\Promise
+function filter_async(iterable $traversable, \Closure $value_predicate) : \Amp\Promise
 {
-    return \Sabre\Event\coroutine(
+    return \Amp\call(
         /** @return \Generator<int, mixed, void, array<Tv, Tv>> */
         function () use($traversable, $value_predicate) : \Generator {
             $tests = (yield Vec\map_async($traversable, $value_predicate));
@@ -58,13 +58,13 @@ function filter_async(iterable $traversable, \Closure $value_predicate) : \Sabre
  * @template Tk as array-key
  *
  * @param iterable<mixed, Tv> $traversable
- * @param \Closure(Tv):\Sabre\Event\Promise<Tk> $async_func
+ * @param \Closure(Tv):\Amp\Promise<Tk> $async_func
  *
- * @return \Sabre\Event\Promise<array<Tk, Tk>>
+ * @return \Amp\Promise<array<Tk, Tk>>
  */
-function map_async(iterable $traversable, \Closure $async_func) : \Sabre\Event\Promise
+function map_async(iterable $traversable, \Closure $async_func) : \Amp\Promise
 {
-    return \Sabre\Event\coroutine(
+    return \Amp\call(
         /** @return \Generator<int, mixed, void, array<Tk, Tk>> */
         function () use($traversable, $async_func) : \Generator {
             $vec = (yield Vec\map_async($traversable, $async_func));

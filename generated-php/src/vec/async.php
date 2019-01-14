@@ -12,13 +12,13 @@ namespace HH\Lib\Vec;
 /**
  * @template Tv
  *
- * @param iterable<mixed, \Sabre\Event\Promise<Tv>> $awaitables
+ * @param iterable<mixed, \Amp\Promise<Tv>> $awaitables
  *
- * @return \Sabre\Event\Promise<array<int, Tv>>
+ * @return \Amp\Promise<array<int, Tv>>
  */
-function from_async(iterable $awaitables) : \Sabre\Event\Promise
+function from_async(iterable $awaitables) : \Amp\Promise
 {
-    return \Sabre\Event\coroutine(
+    return \Amp\call(
         /** @return \Generator<int, mixed, void, array<int, Tv>> */
         function () use($awaitables) : \Generator {
             $awaitables = (array) $awaitables;
@@ -34,13 +34,13 @@ function from_async(iterable $awaitables) : \Sabre\Event\Promise
  * @template Tv
  *
  * @param iterable<mixed, Tv> $container
- * @param \Closure(Tv):\Sabre\Event\Promise<bool> $value_predicate
+ * @param \Closure(Tv):\Amp\Promise<bool> $value_predicate
  *
- * @return \Sabre\Event\Promise<array<int, Tv>>
+ * @return \Amp\Promise<array<int, Tv>>
  */
-function filter_async(iterable $container, \Closure $value_predicate) : \Sabre\Event\Promise
+function filter_async(iterable $container, \Closure $value_predicate) : \Amp\Promise
 {
-    return \Sabre\Event\coroutine(
+    return \Amp\call(
         /** @return \Generator<int, mixed, void, array<int, Tv>> */
         function () use($container, $value_predicate) : \Generator {
             $tests = (yield map_async($container, $value_predicate));
@@ -61,13 +61,13 @@ function filter_async(iterable $container, \Closure $value_predicate) : \Sabre\E
  * @template Tv2
  *
  * @param iterable<mixed, Tv1> $traversable
- * @param \Closure(Tv1):\Sabre\Event\Promise<Tv2> $async_func
+ * @param \Closure(Tv1):\Amp\Promise<Tv2> $async_func
  *
- * @return \Sabre\Event\Promise<array<int, Tv2>>
+ * @return \Amp\Promise<array<int, Tv2>>
  */
-function map_async(iterable $traversable, \Closure $async_func) : \Sabre\Event\Promise
+function map_async(iterable $traversable, \Closure $async_func) : \Amp\Promise
 {
-    return \Sabre\Event\coroutine(
+    return \Amp\call(
         /** @return \Generator<int, mixed, void, array<int, Tv2>> */
         function () use($traversable, $async_func) : \Generator {
             $traversable = (array) $traversable;
