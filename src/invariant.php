@@ -23,7 +23,7 @@ namespace {
 	  string $format_str,
 	  ...$fmt_args
 	) {
-		throw new \HH\InvariantException(printf($format_str, ...$fmt_args));
+		throw new \HH\InvariantException(sprintf($format_str, ...$fmt_args));
 	}
 }
 
